@@ -1,0 +1,31 @@
+﻿<Window x:Class="Miln.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Miln Method" Height="378.358" Background="#DBDDDE" Width="644.403" ResizeMode="NoResize">
+    <Grid>
+        <Label Content="f' = 1.6x + 0.5y^2" HorizontalAlignment="Center" Margin="205,35,216,0" VerticalAlignment="Top" Width="217" FontSize="22"/>
+        <ComboBox Name="ChooseAccurance" HorizontalAlignment="Center" VerticalAlignment="Center" Height="31" Width="169" Margin="61,137,408,181" >
+            <ComboBoxItem>0,1</ComboBoxItem>
+            <ComboBoxItem IsSelected="True">0,01</ComboBoxItem>
+            <ComboBoxItem>0,001</ComboBoxItem>
+            <ComboBoxItem>0,0001</ComboBoxItem>
+        </ComboBox>
+        <Label Content="Точность:" HorizontalAlignment="Left" Margin="61,106,0,0" VerticalAlignment="Top" Width="120"/>
+        <Slider x:Name="slider_x" Height="30"
+                TickPlacement="BottomRight" TickFrequency="100"
+                Maximum="10" Minimum="0" Ticks="0,0.5,1,1.5,2,2.5,3,3.5,4,4.5,5,5.5,6,6.5,7,7.5,8,8.5,9,9.5,10" Value="0" IsSnapToTickEnabled="True" LargeChange="50" SmallChange="1" Margin="61,199,408,120" />
+        <Label Height="30" Content="{Binding Value, ElementName=slider_x}" Margin="61,224,507,95"/>
+        <Label Content="Начальное значение x:" HorizontalAlignment="Left" Margin="61,173,0,0" VerticalAlignment="Top" Width="169"/>
+        <Label Content="Начальное значение y:" HorizontalAlignment="Left" Margin="61,259,0,0" VerticalAlignment="Top" Width="169"/>
+        <Slider x:Name="slider_y" Height="30"
+                TickPlacement="BottomRight" TickFrequency="100"
+                Maximum="10" Minimum="0" Ticks="0,0.5,1,1.5,2,2.5,3,3.5,4,4.5,5,5.5,6,6.5,7,7.5,8,8.5,9,9.5,10" Value="0.3" IsSnapToTickEnabled="True" LargeChange="50" SmallChange="1" Margin="61,290,408,29" />
+        <Label Height="30" Content="{Binding Value, ElementName=slider_y}" Margin="61,309,507,10"/>
+        <Label Content="Конечное значение x:" HorizontalAlignment="Left" Margin="253,173,0,0" VerticalAlignment="Top" Width="169"/>
+        <Slider x:Name="end_x" Height="30"
+        	TickPlacement="BottomRight" TickFrequency="100"
+        	Maximum="20" Minimum="0" Ticks="0,0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9,1,1.5,2,2.5,3,3.5,4,4.5,5,5.5,6,6.5,7,7.6,8,8.5,9,9.5,10,12,14,16,18,20" Value="10" IsSnapToTickEnabled="True" LargeChange="50" SmallChange="1" Margin="253,199,216,120" />
+        <Label Height="30" Content="{Binding Value, ElementName=end_x}" Margin="253,224,315,95"/>
+        <Button Content="→" Click="Button_Click" HorizontalAlignment="Left" Margin="253,275,0,0" VerticalAlignment="Top" Width="169" Height="43" FontSize="30" FontWeight="Bold"/>
+    </Grid>
+</Window>
