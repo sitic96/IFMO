@@ -1,0 +1,71 @@
+i equ r0 
+j equ r1 
+x equ r2 
+z equ r3 
+Xseg at 0 
+yyy: DS 2 
+Cseg at 0 
+jmp step1 
+yy: DS 2 
+y: DB '123'; 
+step1: mov x, #0 
+mov i, #0 
+i1_cycle: //перевод в 16-ричный вид
+mov DPTR, #y //начало цикла
+mov a, i 
+movc a, @a + DPTR 
+anl a, #0x0f ////х*10+y[i]&0x0f
+mov b, a 
+mov a, x 
+rl a 
+rl a 
+rl a 
+add a ,x 
+add a ,x 
+add a, b 
+mov x, a 
+inc i 
+cjne i, #3, i1_cycle //конец цикла
+translate: //перевод в символы
+mov i, #0 
+mov a, x 
+mov b, #16 
+div ab //получение цифр из числа
+mov x, a 
+mov z, b 
+mov a, #48 //преобразование первого
+mov b, x 
+add a, b 
+mov x, a 
+subb a, #58 
+jb ACC.7, digit16 
+mov a, x 
+add a, #7 
+mov x, a 
+digit16: 
+mov DPTR, #yy 
+mov a, i 
+mov b, dpl 
+add a, b 
+mov dpl, a 
+mov a, x 
+movx @DPTR, a 
+inc i 
+mov a, #48 //преобразование второго
+mov b, z 
+add a, b 
+mov z, a 
+subb a, #58 
+jb ACC.7, digit162 
+mov a, z 
+add a, #7 
+mov z, a 
+digit162: 
+mov DPTR, #yy 
+mov a, i 
+mov b, dpl 
+add a, b 
+mov dpl, a 
+mov a, z 
+movx @DPTR, a 
+end
