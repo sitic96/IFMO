@@ -1,6 +1,6 @@
 public class Main {
 
     public static void main(String[] args) {
-        MainFrame mf = new MainFrame(25);
+        MainFrame mf = new MainFrame(4);
     }
 }
