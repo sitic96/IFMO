@@ -16,14 +16,13 @@ public class MainFrame extends JFrame implements KeyListener, Runnable {
     private final Color RECTANGLE_COLOR = Color.pink;
     private final Color LINE_COLOR = Color.black;
     private final BasicStroke stroke;
-    private boolean up = true, down = false;
+    private boolean up = false, down = true;
 
     public MainFrame(float thickness) {
         super("Main Frame");
         this.setSize(500, 500);
         setContentPane(mainPanel);
         super.setBackground(Color.white);
-        //setIgnoreRepaint(true);
         getRootPane().setDoubleBuffered(false);
 
         stroke = new BasicStroke(thickness);
@@ -42,37 +41,37 @@ public class MainFrame extends JFrame implements KeyListener, Runnable {
         createBufferStrategy(2);
         BufferStrategy bs = getBufferStrategy();
         Graphics2D g2 = (Graphics2D) bs.getDrawGraphics();
-        ;
+
         super.paint(g2);
         g2.setStroke(stroke);
-        if (y < 100 && y > 0) {
+        if (y <= 0 && y > -100) {
             g2.setColor(RECTANGLE_COLOR);
-            g2.fillRect(x, this.height - (this.height - y), x, y);
+            g2.fillRect(x, 0, x, this.height - Math.abs(y));
             g2.setColor(LINE_COLOR);
-            g2.drawRect(x, this.height - (this.height - y), x, y);
+            g2.drawRect(x, 0, x, this.height - Math.abs(y));
 
             g2.setColor(RECTANGLE_COLOR);
-            g2.fillRect(x, (int) this.getSize().getHeight() - 100, width, height - Math.abs(y));
+            g2.fillRect(x, ((int) this.getSize().getHeight()) - Math.abs(y), width, Math.abs(y));
             g2.setColor(LINE_COLOR);
-            g2.drawRect(x, (int) this.getSize().getHeight() - 100, width, height - Math.abs(y));
-        } else if (y <= 0) {
-            y = (int) this.getSize().getHeight() - 100 - Math.abs(y);
+            g2.drawRect(x, ((int) this.getSize().getHeight()) - Math.abs(y), width, Math.abs(y));
+        } else if (y <= -100) {
+            y = (int) this.getSize().getHeight() - Math.abs(y);
             g2.setColor(RECTANGLE_COLOR);
             g2.fillRect(x, y, width, height);
             g2.setColor(LINE_COLOR);
             g2.drawRect(x, y, width, height);
-        } else if (y > this.getSize().getHeight() - 100 && y < 500) {
+        } else if (y >= 400 && y < 500) {
             g2.setColor(RECTANGLE_COLOR);
-            g2.fillRect(x, y - ((int) this.getSize().getHeight() - 100), x, y - ((int) this.getSize().getHeight() - 100));
+            g2.fillRect(x, y, x, ((int) this.getSize().getHeight()) - y);
             g2.setColor(LINE_COLOR);
-            g2.drawRect(x, y - ((int) this.getSize().getHeight() - 100), x, y - ((int) this.getSize().getHeight() - 100));
+            g2.drawRect(x, y, x, ((int) this.getSize().getHeight()) - y);
 
             g2.setColor(RECTANGLE_COLOR);
-            g2.fillRect(x, (int) this.getSize().getHeight() - 100, width, height - (y - ((int) this.getSize().getHeight() - 100)));
+            g2.fillRect(x, 0, width, 100 - (500 - y));
             g2.setColor(LINE_COLOR);
-            g2.drawRect(x, (int) this.getSize().getHeight() - 100, width, height - (y - ((int) this.getSize().getHeight() - 100)));
+            g2.drawRect(x, 0, width, 100 - (500 - y));
         } else if (y >= 500) {
-            y = 100;
+            y = 0;
             g2.setColor(RECTANGLE_COLOR);
             g2.fillRect(x, y, width, height);
             g2.setColor(LINE_COLOR);
@@ -83,6 +82,7 @@ public class MainFrame extends JFrame implements KeyListener, Runnable {
             g2.setColor(LINE_COLOR);
             g2.drawRect(x, y, width, height);
         }
+
         g.dispose();
         bs.show();
     }
@@ -116,7 +116,7 @@ public class MainFrame extends JFrame implements KeyListener, Runnable {
             y -= 1;
             repaint();
             try {
-                Thread.sleep(50);
+                Thread.sleep(5);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
@@ -140,6 +140,11 @@ public class MainFrame extends JFrame implements KeyListener, Runnable {
         for (int i = 1; i <= 10; i++) {
             y += 1;
             repaint();
+            try {
+                Thread.sleep(5);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
         }
     }
 }
