@@ -12,14 +12,13 @@ import java.util.HashSet;
 
 public class Person extends Table {
     public final int COLUMN_COUNT = 4;
-    public static HashSet<String> columns;
+    public static HashSet<String> COLUMNS;
 
     static {
-        columns = new HashSet<>();
-//        columns.add("id");
-        columns.add("name");
-        columns.add("country");
-        columns.add("category");
+        COLUMNS = new HashSet<>();
+        COLUMNS.add("name");
+        COLUMNS.add("country");
+        COLUMNS.add("category");
     }
     private Integer id;
     private String name;
