@@ -50,4 +50,12 @@ public class Country extends Table {
     public static HashSet<String> getCOLUMNS() {
         return COLUMNS;
     }
+
+    @Override
+    public String toString() {
+        return "Country{" +
+                "id=" + id +
+                ", country='" + country + '\'' +
+                '}';
+    }
 }

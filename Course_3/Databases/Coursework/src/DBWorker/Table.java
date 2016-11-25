@@ -8,5 +8,8 @@ public abstract class Table {
 
     public abstract DBWorkMethods getDAO();
 
-    ;
+    @Override
+    public String toString() {
+        return "Table{}";
+    }
 }

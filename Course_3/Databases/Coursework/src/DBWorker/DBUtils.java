@@ -3,6 +3,7 @@ package DBWorker;
 import fs_classes.classes.Person;
 import org.apache.commons.beanutils.BeanUtils;
 import org.hibernate.Session;
+import redis.clients.jedis.Jedis;
 
 import java.lang.reflect.InvocationTargetException;
 import java.sql.SQLException;
@@ -15,6 +16,7 @@ import java.util.Map;
  */
 public class DBUtils {
     private static final HashSet<String> TABLES;
+    private static Jedis jedis = new Jedis("localhost");
 
     static {
         Session session = session = HibernateUtil.getSessionFactory().openSession();
@@ -25,7 +27,7 @@ public class DBUtils {
     public static HashSet<String> getParameteres(String tableName) throws SQLException {
         if (TABLES.contains(tableName)) {
             switch (tableName.toUpperCase()) {
-                case "PERSON": {
+                case "PERSONS": {
                     return Person.COLUMNS;
                 }
             }
@@ -39,6 +41,9 @@ public class DBUtils {
         try {
             Table table = fillObject(tableName, values);
             table.getDAO().add(table);
+            jedis.sadd("lastAdded", tableName + " " + table.toString());
+            jedis.expire("lastAdded", 30);
+            System.out.println(jedis.smembers("lastAdded"));
             table = null;
         } catch (SQLException e) {
             e.printStackTrace();
@@ -49,6 +54,7 @@ public class DBUtils {
         try {
             Table table = fillObject(tableName, values);
             table.getDAO().removeElement(table);
+            jedis.sadd("lastRemoved", table.toString());
             table = null;
         } catch (SQLException e) {
             e.printStackTrace();

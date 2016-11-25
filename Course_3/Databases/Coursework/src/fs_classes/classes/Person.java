@@ -64,4 +64,12 @@ public class Person extends Table {
     public PersonDAO getDAO() {
         return Factory.getInstance().getPersonDAO();
     }
+
+    @Override
+    public String toString() {
+        return "Person{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                '}';
+    }
 }
