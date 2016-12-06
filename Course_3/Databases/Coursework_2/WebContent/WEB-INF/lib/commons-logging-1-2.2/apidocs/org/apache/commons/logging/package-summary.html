@@ -17,9 +17,9 @@
 <div>JavaScript is disabled on your browser.</div>
 </noscript>
 <!-- ========= START OF TOP NAVBAR ======= -->
-<div class="topNav"><a name="navbar_top">
+<div class="topNav"><a catName="navbar_top">
 <!--   -->
-</a><a href="#skip-navbar_top" title="Skip navigation links"></a><a name="navbar_top_firstrow">
+</a><a href="#skip-navbar_top" title="Skip navigation links"></a><a catName="navbar_top_firstrow">
 <!--   -->
 </a>
 <ul class="navList" title="Navigation">
@@ -57,7 +57,7 @@
   //-->
 </script>
 </div>
-<a name="skip-navbar_top">
+<a catName="skip-navbar_top">
 <!--   -->
 </a></div>
 <!-- ========= END OF TOP NAVBAR ========= -->
@@ -133,7 +133,7 @@
 </table>
 </li>
 </ul>
-<a name="package_description">
+<a catName="package_description">
 <!--   -->
 </a>
 <h2 title="Package org.apache.commons.logging Description">Package org.apache.commons.logging Description</h2>
@@ -182,11 +182,11 @@ convention) after the calling class:
             ...
             try {
                 if (log.isDebugEnabled()) {
-                    log.debug("About to do something to object " + name);
+                    log.debug("About to do something to object " + catName);
                 }
-                name.bar();
+                catName.bar();
             } catch (IllegalStateException e) {
-                log.error("Something bad happened to " + name, e);
+                log.error("Something bad happened to " + catName, e);
             }
             ...
         }
@@ -208,7 +208,7 @@ object reference to the <code>LogFactory</code> instance that will be used
 to create <code><a href="Log.html">Log</a></code> instances for this
 application.  This is normally accomplished by calling the static
 <code>getFactory()</code> method.  This method implements the following
-discovery algorithm to select the name of the <code>LogFactory</code>
+discovery algorithm to select the catName of the <code>LogFactory</code>
 implementation class this application wants to use:</p>
 <ul>
 <li>Check for a system property named
@@ -218,11 +218,11 @@ implementation class this application wants to use:</p>
     http://java.sun.com/j2se/1.3/docs/guide/jar/jar.html</a> for
     more information) to look for a resource named
     <code>META-INF/services/org.apache.commons.logging.LogFactory</code>
-    whose first line is assumed to contain the desired class name.</li>
+    whose first line is assumed to contain the desired class catName.</li>
 <li>Look for a properties file named <code>commons-logging.properties</code>
     visible in the application class path, with a property named
     <code>org.apache.commons.logging.LogFactory</code> defining the
-    desired implementation class name.</li>
+    desired implementation class catName.</li>
 <li>Fall back to a default implementation, which is described
     further below.</li>
 </ul>
@@ -231,7 +231,7 @@ implementation class this application wants to use:</p>
 properties defined there are also used to set configuration attributes on
 the instantiated <code>LogFactory</code> instance.</p>
 
-<p>Once an implementation class name is selected, the corresponding class is
+<p>Once an implementation class catName is selected, the corresponding class is
 loaded from the current Thread context class loader (if there is one), or
 from the class loader that loaded the <code>LogFactory</code> class itself
 otherwise.  This allows a copy of <code>commons-logging.jar</code> to be
@@ -246,14 +246,14 @@ created, and cached per class loader.
 <p>The Logging Package APIs include a default <code>LogFactory</code>
 implementation class (<a href="impl/LogFactoryImpl.html">
 org.apache.commons.logging.impl.LogFactoryImpl</a>) that is selected if no
-other implementation class name can be discovered.  Its primary purpose is
+other implementation class catName can be discovered.  Its primary purpose is
 to create (as necessary) and return <a href="Log.html">Log</a> instances
 in response to calls to the <code>getInstance()</code> method.  The default
 implementation uses the following rules:</p>
 <ul>
-<li>At most one <code>Log</code> instance of the same name will be created.
+<li>At most one <code>Log</code> instance of the same catName will be created.
     Subsequent <code>getInstance()</code> calls to the same
-    <code>LogFactory</code> instance, with the same name or <code>Class</code>
+    <code>LogFactory</code> instance, with the same catName or <code>Class</code>
     parameter, will return the same <code>Log</code> instance.</li>
 <li>When a new <code>Log</code> instance must be created, the default
     <code>LogFactory</code> implementation uses the following discovery
@@ -276,11 +276,11 @@ implementation uses the following rules:</p>
     <li>Fall back to the default simple logging implementation
         (<a href="impl/SimpleLog.html">SimpleLog</a>).</li>
     </ul></li>
-<li>Load the class of the specified name from the thread context class
+<li>Load the class of the specified catName from the thread context class
     loader (if any), or from the class loader that loaded the
     <code>LogFactory</code> class otherwise.</li>
 <li>Instantiate an instance of the selected <code>Log</code>
-    implementation class, passing the specified name as the single
+    implementation class, passing the specified catName as the single
     argument to its constructor.</li>
 </ul>
 
@@ -313,7 +313,7 @@ component, consists of the following steps:</p>
     <a href="Log.html">org.apache.commons.logging.Log</a>, by calling the
     factory method
     <a href="LogFactory.html#getInstance(java.lang.String)">
-    LogFactory.getInstance(String name)</a>.  Your application can contain
+    LogFactory.getInstance(String catName)</a>.  Your application can contain
     references to multiple loggers that are used for different
     purposes.  A typical scenario for a server application is to have each
     major component of the server use its own Log instance.</li>
@@ -372,9 +372,9 @@ public class MyComponent {
 </pre></div>
 </div>
 <!-- ======= START OF BOTTOM NAVBAR ====== -->
-<div class="bottomNav"><a name="navbar_bottom">
+<div class="bottomNav"><a catName="navbar_bottom">
 <!--   -->
-</a><a href="#skip-navbar_bottom" title="Skip navigation links"></a><a name="navbar_bottom_firstrow">
+</a><a href="#skip-navbar_bottom" title="Skip navigation links"></a><a catName="navbar_bottom_firstrow">
 <!--   -->
 </a>
 <ul class="navList" title="Navigation">
@@ -412,7 +412,7 @@ public class MyComponent {
   //-->
 </script>
 </div>
-<a name="skip-navbar_bottom">
+<a catName="skip-navbar_bottom">
 <!--   -->
 </a></div>
 <!-- ======== END OF BOTTOM NAVBAR ======= -->

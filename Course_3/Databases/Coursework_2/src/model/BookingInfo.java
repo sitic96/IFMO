@@ -6,9 +6,28 @@ package model;
 public class BookingInfo {
     private Cat cat;
     private Host host;
+    private Room room;
     private Integer price;
-    private Integer roomNumber;
-    private Integer id;
+    private String id;
+
+    public BookingInfo(Cat cat, Host host, Room room) {
+        this.cat = cat;
+        this.host = host;
+        this.room = room;
+        this.price = price;
+    }
+
+    public BookingInfo() {
+
+    }
+
+    public Room getRoom() {
+        return room;
+    }
+
+    public void setRoom(Room room) {
+        this.room = room;
+    }
 
     public Cat getCat() {
         return cat;
@@ -34,19 +53,12 @@ public class BookingInfo {
         this.price = price;
     }
 
-    public Integer getRoomNumber() {
-        return roomNumber;
-    }
-
-    public void setRoomNumber(Integer roomNumber) {
-        this.roomNumber = roomNumber;
-    }
-
-    public Integer getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(String id) {
         this.id = id;
     }
+
 }

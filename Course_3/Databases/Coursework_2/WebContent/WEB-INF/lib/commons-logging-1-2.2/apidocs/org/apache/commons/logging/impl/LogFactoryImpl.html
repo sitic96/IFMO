@@ -17,9 +17,9 @@
 <div>JavaScript is disabled on your browser.</div>
 </noscript>
 <!-- ========= START OF TOP NAVBAR ======= -->
-<div class="topNav"><a name="navbar_top">
+<div class="topNav"><a catName="navbar_top">
 <!--   -->
-</a><a href="#skip-navbar_top" title="Skip navigation links"></a><a name="navbar_top_firstrow">
+</a><a href="#skip-navbar_top" title="Skip navigation links"></a><a catName="navbar_top_firstrow">
 <!--   -->
 </a>
 <ul class="navList" title="Navigation">
@@ -72,7 +72,7 @@
 <li><a href="#method_detail">Method</a></li>
 </ul>
 </div>
-<a name="skip-navbar_top">
+<a catName="skip-navbar_top">
 <!--   -->
 </a></div>
 <!-- ========= END OF TOP NAVBAR ========= -->
@@ -126,7 +126,7 @@ extends <a href="../../../../../org/apache/commons/logging/LogFactory.html" titl
  attributes available to the Log instance, if it so desires.
  <p>
  This factory will remember previously created <code>Log</code> instances
- for the same name, and will return them on repeated requests to the
+ for the same catName, and will return them on repeated requests to the
  <code>getInstance()</code> method.</div>
 <dl><dt><span class="strong">Version:</span></dt>
   <dd>$Id: LogFactoryImpl.java 1449064 2013-02-22 14:49:22Z tn $</dd></dl>
@@ -138,7 +138,7 @@ extends <a href="../../../../../org/apache/commons/logging/LogFactory.html" titl
 <li class="blockList">
 <!-- =========== FIELD SUMMARY =========== -->
 <ul class="blockList">
-<li class="blockList"><a name="field_summary">
+<li class="blockList"><a catName="field_summary">
 <!--   -->
 </a>
 <h3>Field Summary</h3>
@@ -151,7 +151,7 @@ extends <a href="../../../../../org/apache/commons/logging/LogFactory.html" titl
 <tr class="altColor">
 <td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/6/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
 <td class="colLast"><code><strong><a href="../../../../../org/apache/commons/logging/impl/LogFactoryImpl.html#ALLOW_FLAWED_CONTEXT_PROPERTY">ALLOW_FLAWED_CONTEXT_PROPERTY</a></strong></code>
-<div class="block">The name (<code>org.apache.commons.logging.Log.allowFlawedContext</code>)
+<div class="block">The catName (<code>org.apache.commons.logging.Log.allowFlawedContext</code>)
  of the system property which can be set true/false to
  determine system behaviour when a bad context-classloader is encountered.</div>
 </td>
@@ -159,7 +159,7 @@ extends <a href="../../../../../org/apache/commons/logging/LogFactory.html" titl
 <tr class="rowColor">
 <td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/6/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
 <td class="colLast"><code><strong><a href="../../../../../org/apache/commons/logging/impl/LogFactoryImpl.html#ALLOW_FLAWED_DISCOVERY_PROPERTY">ALLOW_FLAWED_DISCOVERY_PROPERTY</a></strong></code>
-<div class="block">The name (<code>org.apache.commons.logging.Log.allowFlawedDiscovery</code>)
+<div class="block">The catName (<code>org.apache.commons.logging.Log.allowFlawedDiscovery</code>)
  of the system property which can be set true/false to
  determine system behaviour when a bad logging adapter class is
  encountered during logging discovery.</div>
@@ -168,7 +168,7 @@ extends <a href="../../../../../org/apache/commons/logging/LogFactory.html" titl
 <tr class="altColor">
 <td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/6/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
 <td class="colLast"><code><strong><a href="../../../../../org/apache/commons/logging/impl/LogFactoryImpl.html#ALLOW_FLAWED_HIERARCHY_PROPERTY">ALLOW_FLAWED_HIERARCHY_PROPERTY</a></strong></code>
-<div class="block">The name (<code>org.apache.commons.logging.Log.allowFlawedHierarchy</code>)
+<div class="block">The catName (<code>org.apache.commons.logging.Log.allowFlawedHierarchy</code>)
  of the system property which can be set true/false to
  determine system behaviour when a logging adapter class is
  encountered which has bound to the wrong Log class implementation.</div>
@@ -184,13 +184,13 @@ extends <a href="../../../../../org/apache/commons/logging/LogFactory.html" titl
 <td class="colFirst"><code>protected <a href="http://docs.oracle.com/javase/6/docs/api/java/util/Hashtable.html?is-external=true" title="class or interface in java.util">Hashtable</a></code></td>
 <td class="colLast"><code><strong><a href="../../../../../org/apache/commons/logging/impl/LogFactoryImpl.html#instances">instances</a></strong></code>
 <div class="block">The <a href="../../../../../org/apache/commons/logging/Log.html" title="interface in org.apache.commons.logging"><code>Log</code></a> instances that have
- already been created, keyed by logger name.</div>
+ already been created, keyed by logger catName.</div>
 </td>
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/6/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
 <td class="colLast"><code><strong><a href="../../../../../org/apache/commons/logging/impl/LogFactoryImpl.html#LOG_PROPERTY">LOG_PROPERTY</a></strong></code>
-<div class="block">The name (<code>org.apache.commons.logging.Log</code>) of the system
+<div class="block">The catName (<code>org.apache.commons.logging.Log</code>) of the system
  property identifying our <a href="../../../../../org/apache/commons/logging/Log.html" title="interface in org.apache.commons.logging"><code>Log</code></a> implementation class.</div>
 </td>
 </tr>
@@ -230,7 +230,7 @@ extends <a href="../../../../../org/apache/commons/logging/LogFactory.html" titl
 </tr>
 </table>
 <ul class="blockList">
-<li class="blockList"><a name="fields_inherited_from_class_org.apache.commons.logging.LogFactory">
+<li class="blockList"><a catName="fields_inherited_from_class_org.apache.commons.logging.LogFactory">
 <!--   -->
 </a>
 <h3>Fields inherited from class&nbsp;org.apache.commons.logging.<a href="../../../../../org/apache/commons/logging/LogFactory.html" title="class in org.apache.commons.logging">LogFactory</a></h3>
@@ -240,7 +240,7 @@ extends <a href="../../../../../org/apache/commons/logging/LogFactory.html" titl
 </ul>
 <!-- ======== CONSTRUCTOR SUMMARY ======== -->
 <ul class="blockList">
-<li class="blockList"><a name="constructor_summary">
+<li class="blockList"><a catName="constructor_summary">
 <!--   -->
 </a>
 <h3>Constructor Summary</h3>
@@ -259,7 +259,7 @@ extends <a href="../../../../../org/apache/commons/logging/LogFactory.html" titl
 </ul>
 <!-- ========== METHOD SUMMARY =========== -->
 <ul class="blockList">
-<li class="blockList"><a name="method_summary">
+<li class="blockList"><a catName="method_summary">
 <!--   -->
 </a>
 <h3>Method Summary</h3>
@@ -271,8 +271,8 @@ extends <a href="../../../../../org/apache/commons/logging/LogFactory.html" titl
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code><a href="http://docs.oracle.com/javase/6/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a></code></td>
-<td class="colLast"><code><strong><a href="../../../../../org/apache/commons/logging/impl/LogFactoryImpl.html#getAttribute(java.lang.String)">getAttribute</a></strong>(<a href="http://docs.oracle.com/javase/6/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name)</code>
-<div class="block">Return the configuration attribute with the specified name (if any),
+<td class="colLast"><code><strong><a href="../../../../../org/apache/commons/logging/impl/LogFactoryImpl.html#getAttribute(java.lang.String)">getAttribute</a></strong>(<a href="http://docs.oracle.com/javase/6/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;catName)</code>
+<div class="block">Return the configuration attribute with the specified catName (if any),
  or <code>null</code> if there is no such attribute.</div>
 </td>
 </tr>
@@ -298,13 +298,13 @@ extends <a href="../../../../../org/apache/commons/logging/LogFactory.html" titl
 <tr class="altColor">
 <td class="colFirst"><code><a href="../../../../../org/apache/commons/logging/Log.html" title="interface in org.apache.commons.logging">Log</a></code></td>
 <td class="colLast"><code><strong><a href="../../../../../org/apache/commons/logging/impl/LogFactoryImpl.html#getInstance(java.lang.Class)">getInstance</a></strong>(<a href="http://docs.oracle.com/javase/6/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang">Class</a>&nbsp;clazz)</code>
-<div class="block">Convenience method to derive a name from the specified class and
+<div class="block">Convenience method to derive a catName from the specified class and
  call <code>getInstance(String)</code> with it.</div>
 </td>
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code><a href="../../../../../org/apache/commons/logging/Log.html" title="interface in org.apache.commons.logging">Log</a></code></td>
-<td class="colLast"><code><strong><a href="../../../../../org/apache/commons/logging/impl/LogFactoryImpl.html#getInstance(java.lang.String)">getInstance</a></strong>(<a href="http://docs.oracle.com/javase/6/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name)</code>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/commons/logging/impl/LogFactoryImpl.html#getInstance(java.lang.String)">getInstance</a></strong>(<a href="http://docs.oracle.com/javase/6/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;catName)</code>
 <div class="block">Construct (if necessary) and return a <code>Log</code> instance,
  using the factory's current set of configuration attributes.</div>
 </td>
@@ -369,9 +369,9 @@ extends <a href="../../../../../org/apache/commons/logging/LogFactory.html" titl
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>protected <a href="../../../../../org/apache/commons/logging/Log.html" title="interface in org.apache.commons.logging">Log</a></code></td>
-<td class="colLast"><code><strong><a href="../../../../../org/apache/commons/logging/impl/LogFactoryImpl.html#newInstance(java.lang.String)">newInstance</a></strong>(<a href="http://docs.oracle.com/javase/6/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name)</code>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/commons/logging/impl/LogFactoryImpl.html#newInstance(java.lang.String)">newInstance</a></strong>(<a href="http://docs.oracle.com/javase/6/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;catName)</code>
 <div class="block">Create and return a new <a href="../../../../../org/apache/commons/logging/Log.html" title="interface in org.apache.commons.logging"><code>Log</code></a>
- instance for the specified name.</div>
+ instance for the specified catName.</div>
 </td>
 </tr>
 <tr class="altColor">
@@ -384,27 +384,27 @@ extends <a href="../../../../../org/apache/commons/logging/LogFactory.html" titl
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><strong><a href="../../../../../org/apache/commons/logging/impl/LogFactoryImpl.html#removeAttribute(java.lang.String)">removeAttribute</a></strong>(<a href="http://docs.oracle.com/javase/6/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name)</code>
-<div class="block">Remove any configuration attribute associated with the specified name.</div>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/commons/logging/impl/LogFactoryImpl.html#removeAttribute(java.lang.String)">removeAttribute</a></strong>(<a href="http://docs.oracle.com/javase/6/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;catName)</code>
+<div class="block">Remove any configuration attribute associated with the specified catName.</div>
 </td>
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><strong><a href="../../../../../org/apache/commons/logging/impl/LogFactoryImpl.html#setAttribute(java.lang.String, java.lang.Object)">setAttribute</a></strong>(<a href="http://docs.oracle.com/javase/6/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name,
+<td class="colLast"><code><strong><a href="../../../../../org/apache/commons/logging/impl/LogFactoryImpl.html#setAttribute(java.lang.String, java.lang.Object)">setAttribute</a></strong>(<a href="http://docs.oracle.com/javase/6/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;catName,
             <a href="http://docs.oracle.com/javase/6/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;value)</code>
-<div class="block">Set the configuration attribute with the specified name.</div>
+<div class="block">Set the configuration attribute with the specified catName.</div>
 </td>
 </tr>
 </table>
 <ul class="blockList">
-<li class="blockList"><a name="methods_inherited_from_class_org.apache.commons.logging.LogFactory">
+<li class="blockList"><a catName="methods_inherited_from_class_org.apache.commons.logging.LogFactory">
 <!--   -->
 </a>
 <h3>Methods inherited from class&nbsp;org.apache.commons.logging.<a href="../../../../../org/apache/commons/logging/LogFactory.html" title="class in org.apache.commons.logging">LogFactory</a></h3>
 <code><a href="../../../../../org/apache/commons/logging/LogFactory.html#createFactory(java.lang.String, java.lang.ClassLoader)">createFactory</a>, <a href="../../../../../org/apache/commons/logging/LogFactory.html#directGetContextClassLoader()">directGetContextClassLoader</a>, <a href="../../../../../org/apache/commons/logging/LogFactory.html#getFactory()">getFactory</a>, <a href="../../../../../org/apache/commons/logging/LogFactory.html#getLog(java.lang.Class)">getLog</a>, <a href="../../../../../org/apache/commons/logging/LogFactory.html#getLog(java.lang.String)">getLog</a>, <a href="../../../../../org/apache/commons/logging/LogFactory.html#handleThrowable(java.lang.Throwable)">handleThrowable</a>, <a href="../../../../../org/apache/commons/logging/LogFactory.html#logRawDiagnostic(java.lang.String)">logRawDiagnostic</a>, <a href="../../../../../org/apache/commons/logging/LogFactory.html#newFactory(java.lang.String, java.lang.ClassLoader)">newFactory</a>, <a href="../../../../../org/apache/commons/logging/LogFactory.html#newFactory(java.lang.String, java.lang.ClassLoader, java.lang.ClassLoader)">newFactory</a>, <a href="../../../../../org/apache/commons/logging/LogFactory.html#objectId(java.lang.Object)">objectId</a>, <a href="../../../../../org/apache/commons/logging/LogFactory.html#release(java.lang.ClassLoader)">release</a>, <a href="../../../../../org/apache/commons/logging/LogFactory.html#releaseAll()">releaseAll</a></code></li>
 </ul>
 <ul class="blockList">
-<li class="blockList"><a name="methods_inherited_from_class_java.lang.Object">
+<li class="blockList"><a catName="methods_inherited_from_class_java.lang.Object">
 <!--   -->
 </a>
 <h3>Methods inherited from class&nbsp;java.lang.<a href="http://docs.oracle.com/javase/6/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a></h3>
@@ -420,23 +420,23 @@ extends <a href="../../../../../org/apache/commons/logging/LogFactory.html" titl
 <li class="blockList">
 <!-- ============ FIELD DETAIL =========== -->
 <ul class="blockList">
-<li class="blockList"><a name="field_detail">
+<li class="blockList"><a catName="field_detail">
 <!--   -->
 </a>
 <h3>Field Detail</h3>
-<a name="LOG_PROPERTY">
+<a catName="LOG_PROPERTY">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
 <h4>LOG_PROPERTY</h4>
 <pre>public static final&nbsp;<a href="http://docs.oracle.com/javase/6/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a> LOG_PROPERTY</pre>
-<div class="block">The name (<code>org.apache.commons.logging.Log</code>) of the system
+<div class="block">The catName (<code>org.apache.commons.logging.Log</code>) of the system
  property identifying our <a href="../../../../../org/apache/commons/logging/Log.html" title="interface in org.apache.commons.logging"><code>Log</code></a> implementation class.</div>
 <dl><dt><span class="strong">See Also:</span></dt><dd><a href="../../../../../constant-values.html#org.apache.commons.logging.impl.LogFactoryImpl.LOG_PROPERTY">Constant Field Values</a></dd></dl>
 </li>
 </ul>
-<a name="LOG_PROPERTY_OLD">
+<a catName="LOG_PROPERTY_OLD">
 <!--   -->
 </a>
 <ul class="blockList">
@@ -448,14 +448,14 @@ extends <a href="../../../../../org/apache/commons/logging/LogFactory.html" titl
 <dl><dt><span class="strong">See Also:</span></dt><dd><a href="../../../../../constant-values.html#org.apache.commons.logging.impl.LogFactoryImpl.LOG_PROPERTY_OLD">Constant Field Values</a></dd></dl>
 </li>
 </ul>
-<a name="ALLOW_FLAWED_CONTEXT_PROPERTY">
+<a catName="ALLOW_FLAWED_CONTEXT_PROPERTY">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
 <h4>ALLOW_FLAWED_CONTEXT_PROPERTY</h4>
 <pre>public static final&nbsp;<a href="http://docs.oracle.com/javase/6/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a> ALLOW_FLAWED_CONTEXT_PROPERTY</pre>
-<div class="block">The name (<code>org.apache.commons.logging.Log.allowFlawedContext</code>)
+<div class="block">The catName (<code>org.apache.commons.logging.Log.allowFlawedContext</code>)
  of the system property which can be set true/false to
  determine system behaviour when a bad context-classloader is encountered.
  When set to false, a LogConfigurationException is thrown if
@@ -468,14 +468,14 @@ extends <a href="../../../../../org/apache/commons/logging/LogFactory.html" titl
 <dl><dt><span class="strong">See Also:</span></dt><dd><a href="../../../../../constant-values.html#org.apache.commons.logging.impl.LogFactoryImpl.ALLOW_FLAWED_CONTEXT_PROPERTY">Constant Field Values</a></dd></dl>
 </li>
 </ul>
-<a name="ALLOW_FLAWED_DISCOVERY_PROPERTY">
+<a catName="ALLOW_FLAWED_DISCOVERY_PROPERTY">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
 <h4>ALLOW_FLAWED_DISCOVERY_PROPERTY</h4>
 <pre>public static final&nbsp;<a href="http://docs.oracle.com/javase/6/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a> ALLOW_FLAWED_DISCOVERY_PROPERTY</pre>
-<div class="block">The name (<code>org.apache.commons.logging.Log.allowFlawedDiscovery</code>)
+<div class="block">The catName (<code>org.apache.commons.logging.Log.allowFlawedDiscovery</code>)
  of the system property which can be set true/false to
  determine system behaviour when a bad logging adapter class is
  encountered during logging discovery. When set to false, an
@@ -489,14 +489,14 @@ extends <a href="../../../../../org/apache/commons/logging/LogFactory.html" titl
 <dl><dt><span class="strong">See Also:</span></dt><dd><a href="../../../../../constant-values.html#org.apache.commons.logging.impl.LogFactoryImpl.ALLOW_FLAWED_DISCOVERY_PROPERTY">Constant Field Values</a></dd></dl>
 </li>
 </ul>
-<a name="ALLOW_FLAWED_HIERARCHY_PROPERTY">
+<a catName="ALLOW_FLAWED_HIERARCHY_PROPERTY">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
 <h4>ALLOW_FLAWED_HIERARCHY_PROPERTY</h4>
 <pre>public static final&nbsp;<a href="http://docs.oracle.com/javase/6/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a> ALLOW_FLAWED_HIERARCHY_PROPERTY</pre>
-<div class="block">The name (<code>org.apache.commons.logging.Log.allowFlawedHierarchy</code>)
+<div class="block">The catName (<code>org.apache.commons.logging.Log.allowFlawedHierarchy</code>)
  of the system property which can be set true/false to
  determine system behaviour when a logging adapter class is
  encountered which has bound to the wrong Log class implementation.
@@ -510,7 +510,7 @@ extends <a href="../../../../../org/apache/commons/logging/LogFactory.html" titl
 <dl><dt><span class="strong">See Also:</span></dt><dd><a href="../../../../../constant-values.html#org.apache.commons.logging.impl.LogFactoryImpl.ALLOW_FLAWED_HIERARCHY_PROPERTY">Constant Field Values</a></dd></dl>
 </li>
 </ul>
-<a name="attributes">
+<a catName="attributes">
 <!--   -->
 </a>
 <ul class="blockList">
@@ -520,7 +520,7 @@ extends <a href="../../../../../org/apache/commons/logging/LogFactory.html" titl
 <div class="block">Configuration attributes.</div>
 </li>
 </ul>
-<a name="instances">
+<a catName="instances">
 <!--   -->
 </a>
 <ul class="blockList">
@@ -528,10 +528,10 @@ extends <a href="../../../../../org/apache/commons/logging/LogFactory.html" titl
 <h4>instances</h4>
 <pre>protected&nbsp;<a href="http://docs.oracle.com/javase/6/docs/api/java/util/Hashtable.html?is-external=true" title="class or interface in java.util">Hashtable</a> instances</pre>
 <div class="block">The <a href="../../../../../org/apache/commons/logging/Log.html" title="interface in org.apache.commons.logging"><code>Log</code></a> instances that have
- already been created, keyed by logger name.</div>
+ already been created, keyed by logger catName.</div>
 </li>
 </ul>
-<a name="logConstructor">
+<a catName="logConstructor">
 <!--   -->
 </a>
 <ul class="blockList">
@@ -545,7 +545,7 @@ extends <a href="../../../../../org/apache/commons/logging/LogFactory.html" titl
  and then returned repeatedly.</div>
 </li>
 </ul>
-<a name="logConstructorSignature">
+<a catName="logConstructorSignature">
 <!--   -->
 </a>
 <ul class="blockList">
@@ -555,7 +555,7 @@ extends <a href="../../../../../org/apache/commons/logging/LogFactory.html" titl
 <div class="block">The signature of the Constructor to be used.</div>
 </li>
 </ul>
-<a name="logMethod">
+<a catName="logMethod">
 <!--   -->
 </a>
 <ul class="blockList">
@@ -566,7 +566,7 @@ extends <a href="../../../../../org/apache/commons/logging/LogFactory.html" titl
  <a href="../../../../../org/apache/commons/logging/Log.html" title="interface in org.apache.commons.logging"><code>Log</code></a> method, if it exists.</div>
 </li>
 </ul>
-<a name="logMethodSignature">
+<a catName="logMethodSignature">
 <!--   -->
 </a>
 <ul class="blockListLast">
@@ -580,11 +580,11 @@ extends <a href="../../../../../org/apache/commons/logging/LogFactory.html" titl
 </ul>
 <!-- ========= CONSTRUCTOR DETAIL ======== -->
 <ul class="blockList">
-<li class="blockList"><a name="constructor_detail">
+<li class="blockList"><a catName="constructor_detail">
 <!--   -->
 </a>
 <h3>Constructor Detail</h3>
-<a name="LogFactoryImpl()">
+<a catName="LogFactoryImpl()">
 <!--   -->
 </a>
 <ul class="blockListLast">
@@ -598,26 +598,26 @@ extends <a href="../../../../../org/apache/commons/logging/LogFactory.html" titl
 </ul>
 <!-- ============ METHOD DETAIL ========== -->
 <ul class="blockList">
-<li class="blockList"><a name="method_detail">
+<li class="blockList"><a catName="method_detail">
 <!--   -->
 </a>
 <h3>Method Detail</h3>
-<a name="getAttribute(java.lang.String)">
+<a catName="getAttribute(java.lang.String)">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
 <h4>getAttribute</h4>
-<pre>public&nbsp;<a href="http://docs.oracle.com/javase/6/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;getAttribute(<a href="http://docs.oracle.com/javase/6/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name)</pre>
-<div class="block">Return the configuration attribute with the specified name (if any),
+<pre>public&nbsp;<a href="http://docs.oracle.com/javase/6/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;getAttribute(<a href="http://docs.oracle.com/javase/6/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;catName)</pre>
+<div class="block">Return the configuration attribute with the specified catName (if any),
  or <code>null</code> if there is no such attribute.</div>
 <dl>
 <dt><strong>Specified by:</strong></dt>
 <dd><code><a href="../../../../../org/apache/commons/logging/LogFactory.html#getAttribute(java.lang.String)">getAttribute</a></code>&nbsp;in class&nbsp;<code><a href="../../../../../org/apache/commons/logging/LogFactory.html" title="class in org.apache.commons.logging">LogFactory</a></code></dd>
-<dt><span class="strong">Parameters:</span></dt><dd><code>name</code> - Name of the attribute to return</dd></dl>
+<dt><span class="strong">Parameters:</span></dt><dd><code>catName</code> - Name of the attribute to return</dd></dl>
 </li>
 </ul>
-<a name="getAttributeNames()">
+<a catName="getAttributeNames()">
 <!--   -->
 </a>
 <ul class="blockList">
@@ -633,7 +633,7 @@ extends <a href="../../../../../org/apache/commons/logging/LogFactory.html" titl
 </dl>
 </li>
 </ul>
-<a name="getInstance(java.lang.Class)">
+<a catName="getInstance(java.lang.Class)">
 <!--   -->
 </a>
 <ul class="blockList">
@@ -641,24 +641,24 @@ extends <a href="../../../../../org/apache/commons/logging/LogFactory.html" titl
 <h4>getInstance</h4>
 <pre>public&nbsp;<a href="../../../../../org/apache/commons/logging/Log.html" title="interface in org.apache.commons.logging">Log</a>&nbsp;getInstance(<a href="http://docs.oracle.com/javase/6/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang">Class</a>&nbsp;clazz)
                 throws <a href="../../../../../org/apache/commons/logging/LogConfigurationException.html" title="class in org.apache.commons.logging">LogConfigurationException</a></pre>
-<div class="block">Convenience method to derive a name from the specified class and
+<div class="block">Convenience method to derive a catName from the specified class and
  call <code>getInstance(String)</code> with it.</div>
 <dl>
 <dt><strong>Specified by:</strong></dt>
 <dd><code><a href="../../../../../org/apache/commons/logging/LogFactory.html#getInstance(java.lang.Class)">getInstance</a></code>&nbsp;in class&nbsp;<code><a href="../../../../../org/apache/commons/logging/LogFactory.html" title="class in org.apache.commons.logging">LogFactory</a></code></dd>
-<dt><span class="strong">Parameters:</span></dt><dd><code>clazz</code> - Class for which a suitable Log name will be derived</dd>
+<dt><span class="strong">Parameters:</span></dt><dd><code>clazz</code> - Class for which a suitable Log catName will be derived</dd>
 <dt><span class="strong">Throws:</span></dt>
 <dd><code><a href="../../../../../org/apache/commons/logging/LogConfigurationException.html" title="class in org.apache.commons.logging">LogConfigurationException</a></code> - if a suitable <code>Log</code>
   instance cannot be returned</dd></dl>
 </li>
 </ul>
-<a name="getInstance(java.lang.String)">
+<a catName="getInstance(java.lang.String)">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
 <h4>getInstance</h4>
-<pre>public&nbsp;<a href="../../../../../org/apache/commons/logging/Log.html" title="interface in org.apache.commons.logging">Log</a>&nbsp;getInstance(<a href="http://docs.oracle.com/javase/6/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name)
+<pre>public&nbsp;<a href="../../../../../org/apache/commons/logging/Log.html" title="interface in org.apache.commons.logging">Log</a>&nbsp;getInstance(<a href="http://docs.oracle.com/javase/6/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;catName)
                 throws <a href="../../../../../org/apache/commons/logging/LogConfigurationException.html" title="class in org.apache.commons.logging">LogConfigurationException</a></pre>
 <div class="block"><p>Construct (if necessary) and return a <code>Log</code> instance,
  using the factory's current set of configuration attributes.</p>
@@ -667,19 +667,19 @@ extends <a href="../../../../../org/apache/commons/logging/LogFactory.html" titl
  the <code>LogFactory</code> you are using, the <code>Log</code>
  instance you are returned may or may not be local to the current
  application, and may or may not be returned again on a subsequent
- call with the same name argument.</p></div>
+ call with the same catName argument.</p></div>
 <dl>
 <dt><strong>Specified by:</strong></dt>
 <dd><code><a href="../../../../../org/apache/commons/logging/LogFactory.html#getInstance(java.lang.String)">getInstance</a></code>&nbsp;in class&nbsp;<code><a href="../../../../../org/apache/commons/logging/LogFactory.html" title="class in org.apache.commons.logging">LogFactory</a></code></dd>
-<dt><span class="strong">Parameters:</span></dt><dd><code>name</code> - Logical name of the <code>Log</code> instance to be
-  returned (the meaning of this name is only known to the underlying
+<dt><span class="strong">Parameters:</span></dt><dd><code>catName</code> - Logical catName of the <code>Log</code> instance to be
+  returned (the meaning of this catName is only known to the underlying
   logging implementation that is being wrapped)</dd>
 <dt><span class="strong">Throws:</span></dt>
 <dd><code><a href="../../../../../org/apache/commons/logging/LogConfigurationException.html" title="class in org.apache.commons.logging">LogConfigurationException</a></code> - if a suitable <code>Log</code>
   instance cannot be returned</dd></dl>
 </li>
 </ul>
-<a name="release()">
+<a catName="release()">
 <!--   -->
 </a>
 <ul class="blockList">
@@ -698,32 +698,32 @@ extends <a href="../../../../../org/apache/commons/logging/LogFactory.html" titl
 </dl>
 </li>
 </ul>
-<a name="removeAttribute(java.lang.String)">
+<a catName="removeAttribute(java.lang.String)">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
 <h4>removeAttribute</h4>
-<pre>public&nbsp;void&nbsp;removeAttribute(<a href="http://docs.oracle.com/javase/6/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name)</pre>
-<div class="block">Remove any configuration attribute associated with the specified name.
+<pre>public&nbsp;void&nbsp;removeAttribute(<a href="http://docs.oracle.com/javase/6/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;catName)</pre>
+<div class="block">Remove any configuration attribute associated with the specified catName.
  If there is no such attribute, no action is taken.</div>
 <dl>
 <dt><strong>Specified by:</strong></dt>
 <dd><code><a href="../../../../../org/apache/commons/logging/LogFactory.html#removeAttribute(java.lang.String)">removeAttribute</a></code>&nbsp;in class&nbsp;<code><a href="../../../../../org/apache/commons/logging/LogFactory.html" title="class in org.apache.commons.logging">LogFactory</a></code></dd>
-<dt><span class="strong">Parameters:</span></dt><dd><code>name</code> - Name of the attribute to remove</dd></dl>
+<dt><span class="strong">Parameters:</span></dt><dd><code>catName</code> - Name of the attribute to remove</dd></dl>
 </li>
 </ul>
-<a name="setAttribute(java.lang.String, java.lang.Object)">
+<a catName="setAttribute(java.lang.String, java.lang.Object)">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
 <h4>setAttribute</h4>
-<pre>public&nbsp;void&nbsp;setAttribute(<a href="http://docs.oracle.com/javase/6/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name,
+<pre>public&nbsp;void&nbsp;setAttribute(<a href="http://docs.oracle.com/javase/6/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;catName,
                 <a href="http://docs.oracle.com/javase/6/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;value)</pre>
-<div class="block">Set the configuration attribute with the specified name.  Calling
+<div class="block">Set the configuration attribute with the specified catName.  Calling
  this with a <code>null</code> value is equivalent to calling
- <code>removeAttribute(name)</code>.
+ <code>removeAttribute(catName)</code>.
  <p>
  This method can be used to set logging configuration programmatically
  rather than via system properties. It can also be used in code running
@@ -742,11 +742,11 @@ extends <a href="../../../../../org/apache/commons/logging/LogFactory.html" titl
 <dl>
 <dt><strong>Specified by:</strong></dt>
 <dd><code><a href="../../../../../org/apache/commons/logging/LogFactory.html#setAttribute(java.lang.String, java.lang.Object)">setAttribute</a></code>&nbsp;in class&nbsp;<code><a href="../../../../../org/apache/commons/logging/LogFactory.html" title="class in org.apache.commons.logging">LogFactory</a></code></dd>
-<dt><span class="strong">Parameters:</span></dt><dd><code>name</code> - Name of the attribute to set</dd><dd><code>value</code> - Value of the attribute to set, or <code>null</code>
+<dt><span class="strong">Parameters:</span></dt><dd><code>catName</code> - Name of the attribute to set</dd><dd><code>value</code> - Value of the attribute to set, or <code>null</code>
   to remove any setting for this attribute</dd></dl>
 </li>
 </ul>
-<a name="getContextClassLoader()">
+<a catName="getContextClassLoader()">
 <!--   -->
 </a>
 <ul class="blockList">
@@ -761,7 +761,7 @@ extends <a href="../../../../../org/apache/commons/logging/LogFactory.html" titl
   <dd>1.1</dd></dl>
 </li>
 </ul>
-<a name="isDiagnosticsEnabled()">
+<a catName="isDiagnosticsEnabled()">
 <!--   -->
 </a>
 <ul class="blockList">
@@ -772,7 +772,7 @@ extends <a href="../../../../../org/apache/commons/logging/LogFactory.html" titl
  See LogFactory.isDiagnosticsEnabled.</div>
 </li>
 </ul>
-<a name="getClassLoader(java.lang.Class)">
+<a catName="getClassLoader(java.lang.Class)">
 <!--   -->
 </a>
 <ul class="blockList">
@@ -785,7 +785,7 @@ extends <a href="../../../../../org/apache/commons/logging/LogFactory.html" titl
   <dd>1.1</dd></dl>
 </li>
 </ul>
-<a name="logDiagnostic(java.lang.String)">
+<a catName="logDiagnostic(java.lang.String)">
 <!--   -->
 </a>
 <ul class="blockList">
@@ -798,7 +798,7 @@ extends <a href="../../../../../org/apache/commons/logging/LogFactory.html" titl
   <dd>1.1</dd></dl>
 </li>
 </ul>
-<a name="getLogClassName()">
+<a catName="getLogClassName()">
 <!--   -->
 </a>
 <ul class="blockList">
@@ -811,7 +811,7 @@ extends <a href="../../../../../org/apache/commons/logging/LogFactory.html" titl
  implementation we will be using.</div>
 </li>
 </ul>
-<a name="getLogConstructor()">
+<a catName="getLogConstructor()">
 <!--   -->
 </a>
 <ul class="blockList">
@@ -833,7 +833,7 @@ extends <a href="../../../../../org/apache/commons/logging/LogFactory.html" titl
   cannot be returned</dd></dl>
 </li>
 </ul>
-<a name="isJdk13LumberjackAvailable()">
+<a catName="isJdk13LumberjackAvailable()">
 <!--   -->
 </a>
 <ul class="blockList">
@@ -845,7 +845,7 @@ extends <a href="../../../../../org/apache/commons/logging/LogFactory.html" titl
 <div class="block">Is <em>JDK 1.3 with Lumberjack</em> logging available?</div>
 </li>
 </ul>
-<a name="isJdk14Available()">
+<a catName="isJdk14Available()">
 <!--   -->
 </a>
 <ul class="blockList">
@@ -860,7 +860,7 @@ extends <a href="../../../../../org/apache/commons/logging/LogFactory.html" titl
  Jdk14Logger.</div>
 </li>
 </ul>
-<a name="isLog4JAvailable()">
+<a catName="isLog4JAvailable()">
 <!--   -->
 </a>
 <ul class="blockList">
@@ -872,17 +872,17 @@ extends <a href="../../../../../org/apache/commons/logging/LogFactory.html" titl
 <div class="block">Is a <em>Log4J</em> implementation available?</div>
 </li>
 </ul>
-<a name="newInstance(java.lang.String)">
+<a catName="newInstance(java.lang.String)">
 <!--   -->
 </a>
 <ul class="blockListLast">
 <li class="blockList">
 <h4>newInstance</h4>
-<pre>protected&nbsp;<a href="../../../../../org/apache/commons/logging/Log.html" title="interface in org.apache.commons.logging">Log</a>&nbsp;newInstance(<a href="http://docs.oracle.com/javase/6/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name)
+<pre>protected&nbsp;<a href="../../../../../org/apache/commons/logging/Log.html" title="interface in org.apache.commons.logging">Log</a>&nbsp;newInstance(<a href="http://docs.oracle.com/javase/6/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;catName)
                    throws <a href="../../../../../org/apache/commons/logging/LogConfigurationException.html" title="class in org.apache.commons.logging">LogConfigurationException</a></pre>
 <div class="block">Create and return a new <a href="../../../../../org/apache/commons/logging/Log.html" title="interface in org.apache.commons.logging"><code>Log</code></a>
- instance for the specified name.</div>
-<dl><dt><span class="strong">Parameters:</span></dt><dd><code>name</code> - Name of the new logger</dd>
+ instance for the specified catName.</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>catName</code> - Name of the new logger</dd>
 <dt><span class="strong">Throws:</span></dt>
 <dd><code><a href="../../../../../org/apache/commons/logging/LogConfigurationException.html" title="class in org.apache.commons.logging">LogConfigurationException</a></code> - if a new instance cannot
   be created</dd></dl>
@@ -896,9 +896,9 @@ extends <a href="../../../../../org/apache/commons/logging/LogFactory.html" titl
 </div>
 <!-- ========= END OF CLASS DATA ========= -->
 <!-- ======= START OF BOTTOM NAVBAR ====== -->
-<div class="bottomNav"><a name="navbar_bottom">
+<div class="bottomNav"><a catName="navbar_bottom">
 <!--   -->
-</a><a href="#skip-navbar_bottom" title="Skip navigation links"></a><a name="navbar_bottom_firstrow">
+</a><a href="#skip-navbar_bottom" title="Skip navigation links"></a><a catName="navbar_bottom_firstrow">
 <!--   -->
 </a>
 <ul class="navList" title="Navigation">
@@ -951,7 +951,7 @@ extends <a href="../../../../../org/apache/commons/logging/LogFactory.html" titl
 <li><a href="#method_detail">Method</a></li>
 </ul>
 </div>
-<a name="skip-navbar_bottom">
+<a catName="skip-navbar_bottom">
 <!--   -->
 </a></div>
 <!-- ======== END OF BOTTOM NAVBAR ======= -->

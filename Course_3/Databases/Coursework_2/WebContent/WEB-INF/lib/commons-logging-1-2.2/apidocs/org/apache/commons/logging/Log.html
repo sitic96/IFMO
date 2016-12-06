@@ -17,9 +17,9 @@
 <div>JavaScript is disabled on your browser.</div>
 </noscript>
 <!-- ========= START OF TOP NAVBAR ======= -->
-<div class="topNav"><a name="navbar_top">
+<div class="topNav"><a catName="navbar_top">
 <!--   -->
-</a><a href="#skip-navbar_top" title="Skip navigation links"></a><a name="navbar_top_firstrow">
+</a><a href="#skip-navbar_top" title="Skip navigation links"></a><a catName="navbar_top_firstrow">
 <!--   -->
 </a>
 <ul class="navList" title="Navigation">
@@ -72,7 +72,7 @@
 <li><a href="#method_detail">Method</a></li>
 </ul>
 </div>
-<a name="skip-navbar_top">
+<a catName="skip-navbar_top">
 <!--   -->
 </a></div>
 <!-- ========= END OF TOP NAVBAR ========= -->
@@ -95,7 +95,7 @@
 <div class="block">A simple logging interface abstracting logging APIs.  In order to be
  instantiated successfully by <a href="../../../../org/apache/commons/logging/LogFactory.html" title="class in org.apache.commons.logging"><code>LogFactory</code></a>, classes that implement
  this interface must have a constructor that takes a single String
- parameter representing the "name" of this Log.
+ parameter representing the "catName" of this Log.
  <p>
  The six logging levels used by <code>Log</code> are (in order):
  <ol>
@@ -137,7 +137,7 @@
 <li class="blockList">
 <!-- ========== METHOD SUMMARY =========== -->
 <ul class="blockList">
-<li class="blockList"><a name="method_summary">
+<li class="blockList"><a catName="method_summary">
 <!--   -->
 </a>
 <h3>Method Summary</h3>
@@ -272,11 +272,11 @@
 <li class="blockList">
 <!-- ============ METHOD DETAIL ========== -->
 <ul class="blockList">
-<li class="blockList"><a name="method_detail">
+<li class="blockList"><a catName="method_detail">
 <!--   -->
 </a>
 <h3>Method Detail</h3>
-<a name="debug(java.lang.Object)">
+<a catName="debug(java.lang.Object)">
 <!--   -->
 </a>
 <ul class="blockList">
@@ -287,7 +287,7 @@
 <dl><dt><span class="strong">Parameters:</span></dt><dd><code>message</code> - log this message</dd></dl>
 </li>
 </ul>
-<a name="debug(java.lang.Object, java.lang.Throwable)">
+<a catName="debug(java.lang.Object, java.lang.Throwable)">
 <!--   -->
 </a>
 <ul class="blockList">
@@ -299,7 +299,7 @@
 <dl><dt><span class="strong">Parameters:</span></dt><dd><code>message</code> - log this message</dd><dd><code>t</code> - log this cause</dd></dl>
 </li>
 </ul>
-<a name="error(java.lang.Object)">
+<a catName="error(java.lang.Object)">
 <!--   -->
 </a>
 <ul class="blockList">
@@ -310,7 +310,7 @@
 <dl><dt><span class="strong">Parameters:</span></dt><dd><code>message</code> - log this message</dd></dl>
 </li>
 </ul>
-<a name="error(java.lang.Object, java.lang.Throwable)">
+<a catName="error(java.lang.Object, java.lang.Throwable)">
 <!--   -->
 </a>
 <ul class="blockList">
@@ -322,7 +322,7 @@
 <dl><dt><span class="strong">Parameters:</span></dt><dd><code>message</code> - log this message</dd><dd><code>t</code> - log this cause</dd></dl>
 </li>
 </ul>
-<a name="fatal(java.lang.Object)">
+<a catName="fatal(java.lang.Object)">
 <!--   -->
 </a>
 <ul class="blockList">
@@ -333,7 +333,7 @@
 <dl><dt><span class="strong">Parameters:</span></dt><dd><code>message</code> - log this message</dd></dl>
 </li>
 </ul>
-<a name="fatal(java.lang.Object, java.lang.Throwable)">
+<a catName="fatal(java.lang.Object, java.lang.Throwable)">
 <!--   -->
 </a>
 <ul class="blockList">
@@ -345,7 +345,7 @@
 <dl><dt><span class="strong">Parameters:</span></dt><dd><code>message</code> - log this message</dd><dd><code>t</code> - log this cause</dd></dl>
 </li>
 </ul>
-<a name="info(java.lang.Object)">
+<a catName="info(java.lang.Object)">
 <!--   -->
 </a>
 <ul class="blockList">
@@ -356,7 +356,7 @@
 <dl><dt><span class="strong">Parameters:</span></dt><dd><code>message</code> - log this message</dd></dl>
 </li>
 </ul>
-<a name="info(java.lang.Object, java.lang.Throwable)">
+<a catName="info(java.lang.Object, java.lang.Throwable)">
 <!--   -->
 </a>
 <ul class="blockList">
@@ -368,7 +368,7 @@
 <dl><dt><span class="strong">Parameters:</span></dt><dd><code>message</code> - log this message</dd><dd><code>t</code> - log this cause</dd></dl>
 </li>
 </ul>
-<a name="isDebugEnabled()">
+<a catName="isDebugEnabled()">
 <!--   -->
 </a>
 <ul class="blockList">
@@ -383,7 +383,7 @@
 <dl><dt><span class="strong">Returns:</span></dt><dd>true if debug is enabled in the underlying logger.</dd></dl>
 </li>
 </ul>
-<a name="isErrorEnabled()">
+<a catName="isErrorEnabled()">
 <!--   -->
 </a>
 <ul class="blockList">
@@ -398,7 +398,7 @@
 <dl><dt><span class="strong">Returns:</span></dt><dd>true if error is enabled in the underlying logger.</dd></dl>
 </li>
 </ul>
-<a name="isFatalEnabled()">
+<a catName="isFatalEnabled()">
 <!--   -->
 </a>
 <ul class="blockList">
@@ -413,7 +413,7 @@
 <dl><dt><span class="strong">Returns:</span></dt><dd>true if fatal is enabled in the underlying logger.</dd></dl>
 </li>
 </ul>
-<a name="isInfoEnabled()">
+<a catName="isInfoEnabled()">
 <!--   -->
 </a>
 <ul class="blockList">
@@ -428,7 +428,7 @@
 <dl><dt><span class="strong">Returns:</span></dt><dd>true if info is enabled in the underlying logger.</dd></dl>
 </li>
 </ul>
-<a name="isTraceEnabled()">
+<a catName="isTraceEnabled()">
 <!--   -->
 </a>
 <ul class="blockList">
@@ -443,7 +443,7 @@
 <dl><dt><span class="strong">Returns:</span></dt><dd>true if trace is enabled in the underlying logger.</dd></dl>
 </li>
 </ul>
-<a name="isWarnEnabled()">
+<a catName="isWarnEnabled()">
 <!--   -->
 </a>
 <ul class="blockList">
@@ -458,7 +458,7 @@
 <dl><dt><span class="strong">Returns:</span></dt><dd>true if warn is enabled in the underlying logger.</dd></dl>
 </li>
 </ul>
-<a name="trace(java.lang.Object)">
+<a catName="trace(java.lang.Object)">
 <!--   -->
 </a>
 <ul class="blockList">
@@ -469,7 +469,7 @@
 <dl><dt><span class="strong">Parameters:</span></dt><dd><code>message</code> - log this message</dd></dl>
 </li>
 </ul>
-<a name="trace(java.lang.Object, java.lang.Throwable)">
+<a catName="trace(java.lang.Object, java.lang.Throwable)">
 <!--   -->
 </a>
 <ul class="blockList">
@@ -481,7 +481,7 @@
 <dl><dt><span class="strong">Parameters:</span></dt><dd><code>message</code> - log this message</dd><dd><code>t</code> - log this cause</dd></dl>
 </li>
 </ul>
-<a name="warn(java.lang.Object)">
+<a catName="warn(java.lang.Object)">
 <!--   -->
 </a>
 <ul class="blockList">
@@ -492,7 +492,7 @@
 <dl><dt><span class="strong">Parameters:</span></dt><dd><code>message</code> - log this message</dd></dl>
 </li>
 </ul>
-<a name="warn(java.lang.Object, java.lang.Throwable)">
+<a catName="warn(java.lang.Object, java.lang.Throwable)">
 <!--   -->
 </a>
 <ul class="blockListLast">
@@ -512,9 +512,9 @@
 </div>
 <!-- ========= END OF CLASS DATA ========= -->
 <!-- ======= START OF BOTTOM NAVBAR ====== -->
-<div class="bottomNav"><a name="navbar_bottom">
+<div class="bottomNav"><a catName="navbar_bottom">
 <!--   -->
-</a><a href="#skip-navbar_bottom" title="Skip navigation links"></a><a name="navbar_bottom_firstrow">
+</a><a href="#skip-navbar_bottom" title="Skip navigation links"></a><a catName="navbar_bottom_firstrow">
 <!--   -->
 </a>
 <ul class="navList" title="Navigation">
@@ -567,7 +567,7 @@
 <li><a href="#method_detail">Method</a></li>
 </ul>
 </div>
-<a name="skip-navbar_bottom">
+<a catName="skip-navbar_bottom">
 <!--   -->
 </a></div>
 <!-- ======== END OF BOTTOM NAVBAR ======= -->
