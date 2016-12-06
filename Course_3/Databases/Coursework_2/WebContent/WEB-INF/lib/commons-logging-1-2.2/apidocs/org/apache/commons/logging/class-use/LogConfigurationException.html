@@ -17,9 +17,9 @@
 <div>JavaScript is disabled on your browser.</div>
 </noscript>
 <!-- ========= START OF TOP NAVBAR ======= -->
-<div class="topNav"><a catName="navbar_top">
+<div class="topNav"><a name="navbar_top">
 <!--   -->
-</a><a href="#skip-navbar_top" title="Skip navigation links"></a><a catName="navbar_top_firstrow">
+</a><a href="#skip-navbar_top" title="Skip navigation links"></a><a name="navbar_top_firstrow">
 <!--   -->
 </a>
 <ul class="navList" title="Navigation">
@@ -57,7 +57,7 @@
   //-->
 </script>
 </div>
-<a catName="skip-navbar_top">
+<a name="skip-navbar_top">
 <!--   -->
 </a></div>
 <!-- ========= END OF TOP NAVBAR ========= -->
@@ -91,7 +91,7 @@
 </li>
 <li class="blockList">
 <ul class="blockList">
-<li class="blockList"><a catName="org.apache.commons.logging">
+<li class="blockList"><a name="org.apache.commons.logging">
 <!--   -->
 </a>
 <h3>Uses of <a href="../../../../../org/apache/commons/logging/LogConfigurationException.html" title="class in org.apache.commons.logging">LogConfigurationException</a> in <a href="../../../../../org/apache/commons/logging/package-summary.html">org.apache.commons.logging</a></h3>
@@ -119,19 +119,19 @@
 <td class="colLast"><span class="strong">LogFactory.</span><code><strong><a href="../../../../../org/apache/commons/logging/LogFactory.html#getFactory()">getFactory</a></strong>()</code>
 <div class="block">Construct (if necessary) and return a <code>LogFactory</code>
  instance, using the following ordered lookup procedure to determine
- the catName of the implementation class to be loaded.</div>
+ the name of the implementation class to be loaded.</div>
 </td>
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>abstract <a href="../../../../../org/apache/commons/logging/Log.html" title="interface in org.apache.commons.logging">Log</a></code></td>
 <td class="colLast"><span class="strong">LogFactory.</span><code><strong><a href="../../../../../org/apache/commons/logging/LogFactory.html#getInstance(java.lang.Class)">getInstance</a></strong>(<a href="http://docs.oracle.com/javase/6/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang">Class</a>&nbsp;clazz)</code>
-<div class="block">Convenience method to derive a catName from the specified class and
+<div class="block">Convenience method to derive a name from the specified class and
  call <code>getInstance(String)</code> with it.</div>
 </td>
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>abstract <a href="../../../../../org/apache/commons/logging/Log.html" title="interface in org.apache.commons.logging">Log</a></code></td>
-<td class="colLast"><span class="strong">LogFactory.</span><code><strong><a href="../../../../../org/apache/commons/logging/LogFactory.html#getInstance(java.lang.String)">getInstance</a></strong>(<a href="http://docs.oracle.com/javase/6/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;catName)</code>
+<td class="colLast"><span class="strong">LogFactory.</span><code><strong><a href="../../../../../org/apache/commons/logging/LogFactory.html#getInstance(java.lang.String)">getInstance</a></strong>(<a href="http://docs.oracle.com/javase/6/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name)</code>
 <div class="block">Construct (if necessary) and return a <code>Log</code> instance,
  using the factory's current set of configuration attributes.</div>
 </td>
@@ -145,7 +145,7 @@
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>static <a href="../../../../../org/apache/commons/logging/Log.html" title="interface in org.apache.commons.logging">Log</a></code></td>
-<td class="colLast"><span class="strong">LogFactory.</span><code><strong><a href="../../../../../org/apache/commons/logging/LogFactory.html#getLog(java.lang.String)">getLog</a></strong>(<a href="http://docs.oracle.com/javase/6/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;catName)</code>
+<td class="colLast"><span class="strong">LogFactory.</span><code><strong><a href="../../../../../org/apache/commons/logging/LogFactory.html#getLog(java.lang.String)">getLog</a></strong>(<a href="http://docs.oracle.com/javase/6/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name)</code>
 <div class="block">Convenience method to return a named logger, without the application
  having to care about factories.</div>
 </td>
@@ -162,7 +162,7 @@
 </tbody>
 </table>
 </li>
-<li class="blockList"><a catName="org.apache.commons.logging.impl">
+<li class="blockList"><a name="org.apache.commons.logging.impl">
 <!--   -->
 </a>
 <h3>Uses of <a href="../../../../../org/apache/commons/logging/LogConfigurationException.html" title="class in org.apache.commons.logging">LogConfigurationException</a> in <a href="../../../../../org/apache/commons/logging/impl/package-summary.html">org.apache.commons.logging.impl</a></h3>
@@ -182,13 +182,13 @@
 <tr class="rowColor">
 <td class="colFirst"><code><a href="../../../../../org/apache/commons/logging/Log.html" title="interface in org.apache.commons.logging">Log</a></code></td>
 <td class="colLast"><span class="strong">LogFactoryImpl.</span><code><strong><a href="../../../../../org/apache/commons/logging/impl/LogFactoryImpl.html#getInstance(java.lang.Class)">getInstance</a></strong>(<a href="http://docs.oracle.com/javase/6/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang">Class</a>&nbsp;clazz)</code>
-<div class="block">Convenience method to derive a catName from the specified class and
+<div class="block">Convenience method to derive a name from the specified class and
  call <code>getInstance(String)</code> with it.</div>
 </td>
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code><a href="../../../../../org/apache/commons/logging/Log.html" title="interface in org.apache.commons.logging">Log</a></code></td>
-<td class="colLast"><span class="strong">LogFactoryImpl.</span><code><strong><a href="../../../../../org/apache/commons/logging/impl/LogFactoryImpl.html#getInstance(java.lang.String)">getInstance</a></strong>(<a href="http://docs.oracle.com/javase/6/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;catName)</code>
+<td class="colLast"><span class="strong">LogFactoryImpl.</span><code><strong><a href="../../../../../org/apache/commons/logging/impl/LogFactoryImpl.html#getInstance(java.lang.String)">getInstance</a></strong>(<a href="http://docs.oracle.com/javase/6/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name)</code>
 <div class="block">Construct (if necessary) and return a <code>Log</code> instance,
  using the factory's current set of configuration attributes.</div>
 </td>
@@ -204,9 +204,9 @@
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>protected <a href="../../../../../org/apache/commons/logging/Log.html" title="interface in org.apache.commons.logging">Log</a></code></td>
-<td class="colLast"><span class="strong">LogFactoryImpl.</span><code><strong><a href="../../../../../org/apache/commons/logging/impl/LogFactoryImpl.html#newInstance(java.lang.String)">newInstance</a></strong>(<a href="http://docs.oracle.com/javase/6/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;catName)</code>
+<td class="colLast"><span class="strong">LogFactoryImpl.</span><code><strong><a href="../../../../../org/apache/commons/logging/impl/LogFactoryImpl.html#newInstance(java.lang.String)">newInstance</a></strong>(<a href="http://docs.oracle.com/javase/6/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name)</code>
 <div class="block">Create and return a new <a href="../../../../../org/apache/commons/logging/Log.html" title="interface in org.apache.commons.logging"><code>Log</code></a>
- instance for the specified catName.</div>
+ instance for the specified name.</div>
 </td>
 </tr>
 </tbody>
@@ -217,9 +217,9 @@
 </ul>
 </div>
 <!-- ======= START OF BOTTOM NAVBAR ====== -->
-<div class="bottomNav"><a catName="navbar_bottom">
+<div class="bottomNav"><a name="navbar_bottom">
 <!--   -->
-</a><a href="#skip-navbar_bottom" title="Skip navigation links"></a><a catName="navbar_bottom_firstrow">
+</a><a href="#skip-navbar_bottom" title="Skip navigation links"></a><a name="navbar_bottom_firstrow">
 <!--   -->
 </a>
 <ul class="navList" title="Navigation">
@@ -257,7 +257,7 @@
   //-->
 </script>
 </div>
-<a catName="skip-navbar_bottom">
+<a name="skip-navbar_bottom">
 <!--   -->
 </a></div>
 <!-- ======== END OF BOTTOM NAVBAR ======= -->

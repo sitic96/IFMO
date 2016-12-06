@@ -17,9 +17,9 @@
 <div>JavaScript is disabled on your browser.</div>
 </noscript>
 <!-- ========= START OF TOP NAVBAR ======= -->
-<div class="topNav"><a catName="navbar_top">
+<div class="topNav"><a name="navbar_top">
 <!--   -->
-</a><a href="#skip-navbar_top" title="Skip navigation links"></a><a catName="navbar_top_firstrow">
+</a><a href="#skip-navbar_top" title="Skip navigation links"></a><a name="navbar_top_firstrow">
 <!--   -->
 </a>
 <ul class="navList" title="Navigation">
@@ -72,7 +72,7 @@
 <li><a href="#method_detail">Method</a></li>
 </ul>
 </div>
-<a catName="skip-navbar_top">
+<a name="skip-navbar_top">
 <!--   -->
 </a></div>
 <!-- ========= END OF TOP NAVBAR ========= -->
@@ -119,7 +119,7 @@ extends <a href="http://docs.oracle.com/javase/6/docs/api/java/lang/Object.html?
  You can change the default behavior in one of two ways:
  <ul>
  <li>On the startup command line, set the system property
-     <code>org.apache.commons.logging.log</code> to the catName of the
+     <code>org.apache.commons.logging.log</code> to the name of the
      <code>org.apache.commons.logging.Log</code> implementation class
      you want to use.</li>
  <li>At runtime, call <code>LogSource.setLogImplementation()</code>.</li>
@@ -134,7 +134,7 @@ extends <a href="http://docs.oracle.com/javase/6/docs/api/java/lang/Object.html?
 <li class="blockList">
 <!-- =========== FIELD SUMMARY =========== -->
 <ul class="blockList">
-<li class="blockList"><a catName="field_summary">
+<li class="blockList"><a name="field_summary">
 <!--   -->
 </a>
 <h3>Field Summary</h3>
@@ -176,7 +176,7 @@ extends <a href="http://docs.oracle.com/javase/6/docs/api/java/lang/Object.html?
 </ul>
 <!-- ========== METHOD SUMMARY =========== -->
 <ul class="blockList">
-<li class="blockList"><a catName="method_summary">
+<li class="blockList"><a name="method_summary">
 <!--   -->
 </a>
 <h3>Method Summary</h3>
@@ -195,9 +195,9 @@ extends <a href="http://docs.oracle.com/javase/6/docs/api/java/lang/Object.html?
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>static <a href="../../../../org/apache/commons/logging/Log.html" title="interface in org.apache.commons.logging">Log</a></code></td>
-<td class="colLast"><code><strong><a href="../../../../org/apache/commons/logging/LogSource.html#getInstance(java.lang.String)">getInstance</a></strong>(<a href="http://docs.oracle.com/javase/6/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;catName)</code>
+<td class="colLast"><code><strong><a href="../../../../org/apache/commons/logging/LogSource.html#getInstance(java.lang.String)">getInstance</a></strong>(<a href="http://docs.oracle.com/javase/6/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name)</code>
 <div class="block"><strong>Deprecated.</strong>&nbsp;</div>
-<div class="block">Get a <code>Log</code> instance by class catName.</div>
+<div class="block">Get a <code>Log</code> instance by class name.</div>
 </td>
 </tr>
 <tr class="altColor">
@@ -210,9 +210,9 @@ extends <a href="http://docs.oracle.com/javase/6/docs/api/java/lang/Object.html?
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>static <a href="../../../../org/apache/commons/logging/Log.html" title="interface in org.apache.commons.logging">Log</a></code></td>
-<td class="colLast"><code><strong><a href="../../../../org/apache/commons/logging/LogSource.html#makeNewLogInstance(java.lang.String)">makeNewLogInstance</a></strong>(<a href="http://docs.oracle.com/javase/6/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;catName)</code>
+<td class="colLast"><code><strong><a href="../../../../org/apache/commons/logging/LogSource.html#makeNewLogInstance(java.lang.String)">makeNewLogInstance</a></strong>(<a href="http://docs.oracle.com/javase/6/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name)</code>
 <div class="block"><strong>Deprecated.</strong>&nbsp;</div>
-<div class="block">Create a new <a href="../../../../org/apache/commons/logging/Log.html" title="interface in org.apache.commons.logging"><code>Log</code></a> implementation, based on the given <i>catName</i>.</div>
+<div class="block">Create a new <a href="../../../../org/apache/commons/logging/Log.html" title="interface in org.apache.commons.logging"><code>Log</code></a> implementation, based on the given <i>name</i>.</div>
 </td>
 </tr>
 <tr class="altColor">
@@ -227,12 +227,12 @@ extends <a href="http://docs.oracle.com/javase/6/docs/api/java/lang/Object.html?
 <td class="colLast"><code><strong><a href="../../../../org/apache/commons/logging/LogSource.html#setLogImplementation(java.lang.String)">setLogImplementation</a></strong>(<a href="http://docs.oracle.com/javase/6/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;classname)</code>
 <div class="block"><strong>Deprecated.</strong>&nbsp;</div>
 <div class="block">Set the log implementation/log implementation factory
- by the catName of the class.</div>
+ by the name of the class.</div>
 </td>
 </tr>
 </table>
 <ul class="blockList">
-<li class="blockList"><a catName="methods_inherited_from_class_java.lang.Object">
+<li class="blockList"><a name="methods_inherited_from_class_java.lang.Object">
 <!--   -->
 </a>
 <h3>Methods inherited from class&nbsp;java.lang.<a href="http://docs.oracle.com/javase/6/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a></h3>
@@ -248,11 +248,11 @@ extends <a href="http://docs.oracle.com/javase/6/docs/api/java/lang/Object.html?
 <li class="blockList">
 <!-- ============ FIELD DETAIL =========== -->
 <ul class="blockList">
-<li class="blockList"><a catName="field_detail">
+<li class="blockList"><a name="field_detail">
 <!--   -->
 </a>
 <h3>Field Detail</h3>
-<a catName="logs">
+<a name="logs">
 <!--   -->
 </a>
 <ul class="blockList">
@@ -262,7 +262,7 @@ extends <a href="http://docs.oracle.com/javase/6/docs/api/java/lang/Object.html?
 <div class="block"><span class="strong">Deprecated.</span>&nbsp;</div>
 </li>
 </ul>
-<a catName="log4jIsAvailable">
+<a name="log4jIsAvailable">
 <!--   -->
 </a>
 <ul class="blockList">
@@ -273,7 +273,7 @@ extends <a href="http://docs.oracle.com/javase/6/docs/api/java/lang/Object.html?
 <div class="block">Is log4j available (in the current classpath)</div>
 </li>
 </ul>
-<a catName="jdk14IsAvailable">
+<a name="jdk14IsAvailable">
 <!--   -->
 </a>
 <ul class="blockList">
@@ -284,7 +284,7 @@ extends <a href="http://docs.oracle.com/javase/6/docs/api/java/lang/Object.html?
 <div class="block">Is JDK 1.4 logging available</div>
 </li>
 </ul>
-<a catName="logImplctor">
+<a name="logImplctor">
 <!--   -->
 </a>
 <ul class="blockListLast">
@@ -299,11 +299,11 @@ extends <a href="http://docs.oracle.com/javase/6/docs/api/java/lang/Object.html?
 </ul>
 <!-- ============ METHOD DETAIL ========== -->
 <ul class="blockList">
-<li class="blockList"><a catName="method_detail">
+<li class="blockList"><a name="method_detail">
 <!--   -->
 </a>
 <h3>Method Detail</h3>
-<a catName="setLogImplementation(java.lang.String)">
+<a name="setLogImplementation(java.lang.String)">
 <!--   -->
 </a>
 <ul class="blockList">
@@ -316,9 +316,9 @@ extends <a href="http://docs.oracle.com/javase/6/docs/api/java/lang/Object.html?
                                         <a href="http://docs.oracle.com/javase/6/docs/api/java/lang/ClassNotFoundException.html?is-external=true" title="class or interface in java.lang">ClassNotFoundException</a></pre>
 <div class="block"><span class="strong">Deprecated.</span>&nbsp;</div>
 <div class="block">Set the log implementation/log implementation factory
- by the catName of the class.  The given class must implement <a href="../../../../org/apache/commons/logging/Log.html" title="interface in org.apache.commons.logging"><code>Log</code></a>,
+ by the name of the class.  The given class must implement <a href="../../../../org/apache/commons/logging/Log.html" title="interface in org.apache.commons.logging"><code>Log</code></a>,
  and provide a constructor that takes a single <a href="http://docs.oracle.com/javase/6/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang"><code>String</code></a> argument
- (containing the catName of the log).</div>
+ (containing the name of the log).</div>
 <dl><dt><span class="strong">Throws:</span></dt>
 <dd><code><a href="http://docs.oracle.com/javase/6/docs/api/java/lang/LinkageError.html?is-external=true" title="class or interface in java.lang">LinkageError</a></code></dd>
 <dd><code><a href="http://docs.oracle.com/javase/6/docs/api/java/lang/NoSuchMethodException.html?is-external=true" title="class or interface in java.lang">NoSuchMethodException</a></code></dd>
@@ -326,7 +326,7 @@ extends <a href="http://docs.oracle.com/javase/6/docs/api/java/lang/Object.html?
 <dd><code><a href="http://docs.oracle.com/javase/6/docs/api/java/lang/ClassNotFoundException.html?is-external=true" title="class or interface in java.lang">ClassNotFoundException</a></code></dd></dl>
 </li>
 </ul>
-<a catName="setLogImplementation(java.lang.Class)">
+<a name="setLogImplementation(java.lang.Class)">
 <!--   -->
 </a>
 <ul class="blockList">
@@ -340,7 +340,7 @@ extends <a href="http://docs.oracle.com/javase/6/docs/api/java/lang/Object.html?
 <div class="block"><span class="strong">Deprecated.</span>&nbsp;</div>
 <div class="block">Set the log implementation/log implementation factory by class.
  The given class must implement <a href="../../../../org/apache/commons/logging/Log.html" title="interface in org.apache.commons.logging"><code>Log</code></a>, and provide a constructor
- that takes a single <a href="http://docs.oracle.com/javase/6/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang"><code>String</code></a> argument (containing the catName of the log).</div>
+ that takes a single <a href="http://docs.oracle.com/javase/6/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang"><code>String</code></a> argument (containing the name of the log).</div>
 <dl><dt><span class="strong">Throws:</span></dt>
 <dd><code><a href="http://docs.oracle.com/javase/6/docs/api/java/lang/LinkageError.html?is-external=true" title="class or interface in java.lang">LinkageError</a></code></dd>
 <dd><code><a href="http://docs.oracle.com/javase/6/docs/api/java/lang/ExceptionInInitializerError.html?is-external=true" title="class or interface in java.lang">ExceptionInInitializerError</a></code></dd>
@@ -348,18 +348,18 @@ extends <a href="http://docs.oracle.com/javase/6/docs/api/java/lang/Object.html?
 <dd><code><a href="http://docs.oracle.com/javase/6/docs/api/java/lang/SecurityException.html?is-external=true" title="class or interface in java.lang">SecurityException</a></code></dd></dl>
 </li>
 </ul>
-<a catName="getInstance(java.lang.String)">
+<a name="getInstance(java.lang.String)">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
 <h4>getInstance</h4>
-<pre>public static&nbsp;<a href="../../../../org/apache/commons/logging/Log.html" title="interface in org.apache.commons.logging">Log</a>&nbsp;getInstance(<a href="http://docs.oracle.com/javase/6/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;catName)</pre>
+<pre>public static&nbsp;<a href="../../../../org/apache/commons/logging/Log.html" title="interface in org.apache.commons.logging">Log</a>&nbsp;getInstance(<a href="http://docs.oracle.com/javase/6/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name)</pre>
 <div class="block"><span class="strong">Deprecated.</span>&nbsp;</div>
-<div class="block">Get a <code>Log</code> instance by class catName.</div>
+<div class="block">Get a <code>Log</code> instance by class name.</div>
 </li>
 </ul>
-<a catName="getInstance(java.lang.Class)">
+<a name="getInstance(java.lang.Class)">
 <!--   -->
 </a>
 <ul class="blockList">
@@ -370,31 +370,31 @@ extends <a href="http://docs.oracle.com/javase/6/docs/api/java/lang/Object.html?
 <div class="block">Get a <code>Log</code> instance by class.</div>
 </li>
 </ul>
-<a catName="makeNewLogInstance(java.lang.String)">
+<a name="makeNewLogInstance(java.lang.String)">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
 <h4>makeNewLogInstance</h4>
-<pre>public static&nbsp;<a href="../../../../org/apache/commons/logging/Log.html" title="interface in org.apache.commons.logging">Log</a>&nbsp;makeNewLogInstance(<a href="http://docs.oracle.com/javase/6/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;catName)</pre>
+<pre>public static&nbsp;<a href="../../../../org/apache/commons/logging/Log.html" title="interface in org.apache.commons.logging">Log</a>&nbsp;makeNewLogInstance(<a href="http://docs.oracle.com/javase/6/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name)</pre>
 <div class="block"><span class="strong">Deprecated.</span>&nbsp;</div>
-<div class="block">Create a new <a href="../../../../org/apache/commons/logging/Log.html" title="interface in org.apache.commons.logging"><code>Log</code></a> implementation, based on the given <i>catName</i>.
+<div class="block">Create a new <a href="../../../../org/apache/commons/logging/Log.html" title="interface in org.apache.commons.logging"><code>Log</code></a> implementation, based on the given <i>name</i>.
  <p>
  The specific <a href="../../../../org/apache/commons/logging/Log.html" title="interface in org.apache.commons.logging"><code>Log</code></a> implementation returned is determined by the
  value of the <tt>org.apache.commons.logging.log</tt> property. The value
  of <tt>org.apache.commons.logging.log</tt> may be set to the fully specified
- catName of a class that implements the <a href="../../../../org/apache/commons/logging/Log.html" title="interface in org.apache.commons.logging"><code>Log</code></a> interface. This class must
+ name of a class that implements the <a href="../../../../org/apache/commons/logging/Log.html" title="interface in org.apache.commons.logging"><code>Log</code></a> interface. This class must
  also have a public constructor that takes a single <a href="http://docs.oracle.com/javase/6/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang"><code>String</code></a> argument
- (containing the <i>catName</i> of the <a href="../../../../org/apache/commons/logging/Log.html" title="interface in org.apache.commons.logging"><code>Log</code></a> to be constructed.
+ (containing the <i>name</i> of the <a href="../../../../org/apache/commons/logging/Log.html" title="interface in org.apache.commons.logging"><code>Log</code></a> to be constructed.
  <p>
  When <tt>org.apache.commons.logging.log</tt> is not set, or when no corresponding
  class can be found, this method will return a Log4JLogger if the log4j Logger
  class is available in the <a href="../../../../org/apache/commons/logging/LogSource.html" title="class in org.apache.commons.logging"><code>LogSource</code></a>'s classpath, or a Jdk14Logger if we
  are on a JDK 1.4 or later system, or NoOpLog if neither of the above conditions is true.</div>
-<dl><dt><span class="strong">Parameters:</span></dt><dd><code>catName</code> - the log catName (or category)</dd></dl>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>name</code> - the log name (or category)</dd></dl>
 </li>
 </ul>
-<a catName="getLogNames()">
+<a name="getLogNames()">
 <!--   -->
 </a>
 <ul class="blockListLast">
@@ -414,9 +414,9 @@ extends <a href="http://docs.oracle.com/javase/6/docs/api/java/lang/Object.html?
 </div>
 <!-- ========= END OF CLASS DATA ========= -->
 <!-- ======= START OF BOTTOM NAVBAR ====== -->
-<div class="bottomNav"><a catName="navbar_bottom">
+<div class="bottomNav"><a name="navbar_bottom">
 <!--   -->
-</a><a href="#skip-navbar_bottom" title="Skip navigation links"></a><a catName="navbar_bottom_firstrow">
+</a><a href="#skip-navbar_bottom" title="Skip navigation links"></a><a name="navbar_bottom_firstrow">
 <!--   -->
 </a>
 <ul class="navList" title="Navigation">
@@ -469,7 +469,7 @@ extends <a href="http://docs.oracle.com/javase/6/docs/api/java/lang/Object.html?
 <li><a href="#method_detail">Method</a></li>
 </ul>
 </div>
-<a catName="skip-navbar_bottom">
+<a name="skip-navbar_bottom">
 <!--   -->
 </a></div>
 <!-- ======== END OF BOTTOM NAVBAR ======= -->

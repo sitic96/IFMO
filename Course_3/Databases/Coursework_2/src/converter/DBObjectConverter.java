@@ -2,29 +2,16 @@ package converter;
 
 import com.mongodb.BasicDBObjectBuilder;
 import com.mongodb.DBObject;
-import model.BookingInfo;
 import model.MongoObject;
 import org.apache.commons.beanutils.BeanUtils;
 import org.bson.types.ObjectId;
+
 import java.lang.reflect.InvocationTargetException;
 import java.util.HashSet;
 
 public class DBObjectConverter {
 
-    public static DBObject toDBObject(BookingInfo bookingInfo) {
-        BasicDBObjectBuilder builder = BasicDBObjectBuilder.start();
-        if (bookingInfo.getId() != null) {
-            builder = builder.append("_id", new ObjectId(bookingInfo.getId()));
-        } else {
-            builder.append("cat", toDBObject(bookingInfo.getCat(), bookingInfo.getCat().getParams()));
-            builder.append("host", toDBObject(bookingInfo.getHost(), bookingInfo.getHost().getParams()));
-            builder.append("room", toDBObject(bookingInfo.getRoom(), bookingInfo.getRoom().getParams()));
-            builder.append("price", bookingInfo.getPrice());
-        }
-        return builder.get();
-    }
-
-    private static DBObject toDBObject(MongoObject mongoObject, HashSet<String> values) {
+    public static DBObject toDBObject(MongoObject mongoObject, HashSet<String> values) {
         BasicDBObjectBuilder builder = BasicDBObjectBuilder.start();
         for (String string : values) {
             if (mongoObject.getId() != null) {
@@ -39,67 +26,27 @@ public class DBObjectConverter {
                 } catch (NoSuchMethodException e) {
                     e.printStackTrace();
                 }
+//                if (values.get(string) instanceof Integer) {
+//                    builder = builder.append(string, (Integer) values.get(string));
+//
+//                } else {
+//                    builder = builder.append(string, values.get(string));
+//                }
             }
         }
         return builder.get();
     }
 
-    public static BookingInfo toObject(DBObject doc) {
-        BookingInfo bookingInfo = null;
-        bookingInfo = new BookingInfo();
-        for (String s : doc.keySet()) {
-            switch (s) {
-                case "_id":{
-                    ObjectId id = (ObjectId) doc.get("_id");
-                    bookingInfo.setId(id.toString());
-                    break;
-                }
-                case "cat": {
-                    try {
-                        BeanUtils.setProperty(bookingInfo, "cat", toObject((DBObject) doc.get(s), "Cat"));
-                    } catch (IllegalAccessException e) {
-                        e.printStackTrace();
-                    } catch (InvocationTargetException e) {
-                        e.printStackTrace();
-                    }
-                    break;
-                }
-                case "host": {
-                    try {
-                        BeanUtils.setProperty(bookingInfo, "host", toObject((DBObject) doc.get(s), "Host"));
-                    } catch (IllegalAccessException e) {
-                        e.printStackTrace();
-                    } catch (InvocationTargetException e) {
-                        e.printStackTrace();
-                    }
-                    break;
-                }
-                case "room": {
-                    try {
-                        BeanUtils.setProperty(bookingInfo, "room", toObject((DBObject) doc.get(s), "Room"));
-                    } catch (IllegalAccessException e) {
-                        e.printStackTrace();
-                    } catch (InvocationTargetException e) {
-                        e.printStackTrace();
-                    }
-                    break;
-                }
-                default: {
-                    try {
-                        BeanUtils.setProperty(bookingInfo, s, doc.get(s));
-                    } catch (IllegalAccessException e) {
-                        e.printStackTrace();
-                    } catch (InvocationTargetException e) {
-                        e.printStackTrace();
-                    }
-                }
-            }
-        }
+//    public static DBObject toDBObject(Host p) {
+//
+//        BasicDBObjectBuilder builder = BasicDBObjectBuilder.start()
+//                .append("name", p.getName()).append("country", p.getPhone_number());
+//        if (p.getId() != null)
+//            builder = builder.append("_id", new ObjectId(p.getId()));
+//        return builder.get();
+//    }
 
-        return bookingInfo;
-    }
-
-    private static MongoObject toObject(DBObject doc, String tableName) {
+    public static MongoObject toObject(DBObject doc, String tableName) {
         MongoObject mongoObject = null;
         try {
             mongoObject = ((Class<? extends MongoObject>) Class.forName("model." + tableName)).newInstance();

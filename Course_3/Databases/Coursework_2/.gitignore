@@ -19,12 +19,12 @@
 .idea/dynamic.xml
 .idea/uiDesigner.xml
 
+target
+.idea
+
 # Gradle:
 .idea/gradle.xml
 .idea/libraries
-.idea
-
-target
 
 # Mongo Explorer plugin:
 .idea/mongoSettings.xml

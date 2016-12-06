@@ -39,6 +39,6 @@
     </context-param>
 
     <welcome-file-list>
-        <welcome-file>bookinginfos.jsp</welcome-file>
+        <welcome-file>rooms.jsp</welcome-file>
     </welcome-file-list>
 </web-app>
