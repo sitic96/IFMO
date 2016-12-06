@@ -28,6 +28,7 @@ target
 
 # Mongo Explorer plugin:
 .idea/mongoSettings.xml
+WebContent/WEB-INF/lib
 
 *.class
 
