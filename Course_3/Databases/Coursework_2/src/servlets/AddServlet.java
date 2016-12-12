@@ -2,6 +2,7 @@ package servlets;
 
 import com.mongodb.MongoClient;
 import dao.MongoDBObjectDAO;
+import model.BookingInfo;
 import model.MongoObject;
 import org.apache.commons.beanutils.BeanUtils;
 
@@ -14,7 +15,7 @@ import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
 import java.text.SimpleDateFormat;
 import java.util.HashMap;
-import java.util.List;
+import java.util.Set;
 
 //@WebServlet("/add")
 public class AddServlet extends HttpServlet {
@@ -25,8 +26,6 @@ public class AddServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request,
                           HttpServletResponse response) throws ServletException, IOException {
         String clazz = request.getParameter("clazz");
-//        Map<String, String> params = new HashMap<>();
-//        HashSet<String> fields = null;
         MongoObject mongoObject = null;
         try {
             mongoObject = ((Class<? extends MongoObject>) Class.forName("model." + clazz)).newInstance();
@@ -42,8 +41,6 @@ public class AddServlet extends HttpServlet {
                     rd.forward(request, response);
                 }
             }
-//            fields = ((Class<? extends MongoObject>) Class.forName("model." + clazz))
-//                    .newInstance().getParams();
         } catch (InstantiationException e) {
             e.printStackTrace();
         } catch (IllegalAccessException e) {
@@ -53,52 +50,20 @@ public class AddServlet extends HttpServlet {
         } catch (InvocationTargetException e) {
             e.printStackTrace();
         }
-//        for (String s : fields) {
-//            if (request.getParameter(s) != null && request.getParameter(s) != "") {
-//                params.put(s, request.getParameter(s));
-//            } else {
-//                request.setAttribute("error", "Mandatory Parameters Missing");
-//                RequestDispatcher rd = getServletContext().getRequestDispatcher(
-//                        "/mongoObjects.jsp");
-//                rd.forward(request, response);
-//            }
-//        }
-//        String name = request.getParameter("name");
-//        String country = request.getParameter("phone_number");
-//        String pass = request.getParameter("pass_number");
-//        if ((name == null || name.equals(""))
-//                || (country == null || country.equals(""))) {
-//            request.setAttribute("error", "Mandatory Parameters Missing");
-//            RequestDispatcher rd = getServletContext().getRequestDispatcher(
-//                    "/mongoObjects.jsp");
-//            rd.forward(request, response);
-//        } else {
-//        Host p = new Host();
-//        p.setPhone_number(country);
-//        p.setName(name);
-//        p.setPass_number(pass);
         MongoClient mongo = (MongoClient) request.getServletContext()
                 .getAttribute("MONGO_CLIENT");
-        MongoDBObjectDAO dbObjectDAO = new MongoDBObjectDAO(mongo, clazz);
+        MongoDBObjectDAO dbObjectDAO = new MongoDBObjectDAO(mongo);
         if (mongoObject.getForeign_keys() != null) {
             HashMap<String, String> foreign_keys = mongoObject.getForeign_keys();
             for (String s : foreign_keys.keySet()) {
-                try {
-                    MongoDBObjectDAO mongoDBObjectDAO = new MongoDBObjectDAO(mongo, foreign_keys.get(s));
-                    mongoDBObjectDAO.createReference(mongo, BeanUtils.getProperty(mongoObject, s), foreign_keys.get(s));
-                } catch (IllegalAccessException e) {
-                    e.printStackTrace();
-                } catch (InvocationTargetException e) {
-                    e.printStackTrace();
-                } catch (NoSuchMethodException e) {
-                    e.printStackTrace();
-                }
+                MongoDBObjectDAO mongoDBObjectDAO = new MongoDBObjectDAO(mongo);
+//                    mongoDBObjectDAO.createReference(mongo, BeanUtils.getProperty(mongoObject, s), foreign_keys.get(s));
             }
         }
-        dbObjectDAO.createMongoObject(mongoObject);
+//        dbObjectDAO.createMongoObject(mongoObject);
         System.out.println("Object Added Successfully with id=" + mongoObject.getId());
         request.setAttribute("success", "Object Added Successfully");
-        List<MongoObject> mongoObjects = dbObjectDAO.readAllMongoObjects(clazz);
+        Set<BookingInfo> mongoObjects = dbObjectDAO.readAllMongoObjects();
         request.setAttribute(clazz.toLowerCase() + "s", mongoObjects);
 
         RequestDispatcher rd = getServletContext().getRequestDispatcher(

@@ -2,103 +2,110 @@ package dao;
 
 import com.mongodb.*;
 import converter.DBObjectConverter;
-import model.MongoObject;
-import org.apache.commons.beanutils.BeanUtils;
+import model.BookingInfo;
 import org.bson.types.ObjectId;
+import redis.clients.jedis.Jedis;
 
-import java.lang.reflect.InvocationTargetException;
-import java.util.ArrayList;
-import java.util.List;
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.util.HashSet;
+import java.util.Set;
 
 public class MongoDBObjectDAO {
 
     private DBCollection col;
-    private String tableName;
+    private Jedis jedis = new Jedis("localhost");
 
-    public MongoDBObjectDAO(MongoClient mongo, String tableName) {
-        this.col = mongo.getDB("journaldev").getCollection(tableName + "s");
-        this.tableName = tableName;
+    public MongoDBObjectDAO(MongoClient mongo) {
+        this.col = mongo.getDB("hotel").getCollection("BookingInfos");
     }
 
-    public MongoObject createMongoObject(MongoObject mongoObject) {
-        DBObject doc = DBObjectConverter.toDBObject(mongoObject, mongoObject.getParams());
+    public BookingInfo createMongoObject(BookingInfo bookingInfo) {
+        DBObject doc = DBObjectConverter.toDBObject(bookingInfo);
         this.col.insert(doc);
         ObjectId id = (ObjectId) doc.get("_id");
-        mongoObject.setId(id.toString());
-        return mongoObject;
+        bookingInfo.setId(id.toString());
+        return bookingInfo;
     }
 
-    public void createReference(MongoClient client, String referenceID, String tableName) {
-        MongoObject temp = this.readMongoObjectByID(client, tableName, referenceID);
-        if (temp == null) {
-            try {
-                temp = ((Class<? extends MongoObject>) Class.forName("model." + tableName)).newInstance();
-                temp.setId(referenceID);
-                BeanUtils.setProperty(temp, "hasLinks", true);
-                this.createMongoObject(temp);
-            } catch (InstantiationException e) {
-                e.printStackTrace();
-            } catch (IllegalAccessException e) {
-                e.printStackTrace();
-            } catch (ClassNotFoundException e) {
-                e.printStackTrace();
-            } catch (InvocationTargetException e) {
-                e.printStackTrace();
-            }
-        } else {
-            try {
-                BeanUtils.setProperty(temp, "hasLinks", true);
-            } catch (IllegalAccessException e) {
-                e.printStackTrace();
-            } catch (InvocationTargetException e) {
-                e.printStackTrace();
-            }
-            this.updateMongoObject(temp);
-        }
-    }
-
-    public void updateMongoObject(MongoObject mongoObject) {
+    public void updateMongoObject(BookingInfo bookingInfo) {
         DBObject query = BasicDBObjectBuilder.start()
-                .append("_id", new ObjectId(mongoObject.getId())).get();
-        this.col.update(query, DBObjectConverter.toDBObject(mongoObject, mongoObject.getParams()));
+                .append("_id", new ObjectId(bookingInfo.getId())).get();
+        this.col.update(query, DBObjectConverter.toDBObject(bookingInfo));
     }
 
-    public List<MongoObject> readAllMongoObjects(String tableName) {
-        List<MongoObject> data = new ArrayList<>();
+    public Set<BookingInfo> readAllMongoObjects() {
+        byte[] isCacheValid = jedis.get(("BookingInfo" + "isValid").getBytes());
+        if (isCacheValid != null && isCacheValid[0] == 1) {
+            byte[] cached = jedis.get("BookingInfo".getBytes());
+            if (cached != null && cached.length > 0) {
+                try {
+                    ByteArrayInputStream bais = new ByteArrayInputStream(cached);
+                    int length = bais.read();
+                    ObjectInputStream ois = new ObjectInputStream(bais);
+                    Set<BookingInfo> resultSet = new HashSet<>(length);
+                    for (int i = 0; i < length; i++) {
+                        BookingInfo obj = (BookingInfo) ois.readObject();
+                        resultSet.add(obj);
+                    }
+                    return resultSet;
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+
+        Set<BookingInfo> data = new HashSet<>();
         DBCursor cursor = col.find();
         while (cursor.hasNext()) {
             DBObject doc = cursor.next();
-            MongoObject mongoObject = DBObjectConverter.toObject(doc, tableName);
+            BookingInfo mongoObject = DBObjectConverter.toObject(doc);
             data.add(mongoObject);
+        }
+
+//        Set<BookingInfo> entities = new HashSet<>();
+//        try {
+//            ResultSet results;
+//            for (BookingInfo b : data) {
+//                entities.add(b);
+//            }
+//        } catch (Exception e) {
+//            System.err.print(e.getMessage());
+//        }
+        try {
+            ByteArrayOutputStream baos = new ByteArrayOutputStream();
+            baos.write(data.size());
+            ObjectOutputStream oos = new ObjectOutputStream(baos);
+            for (BookingInfo e : data) {
+                oos.writeObject(e);
+            }
+            oos.close();
+            jedis.set("BookingInfo".getBytes(), baos.toByteArray());
+            jedis.set(("BookingInfo" + "isValid").getBytes(), new byte[]{1});
+        } catch (Exception e) {
+            e.printStackTrace();
         }
         return data;
     }
 
-    public void deleteMongoObject(MongoObject p) {
+    public void deleteMongoObject(BookingInfo p) {
         DBObject query = BasicDBObjectBuilder.start()
                 .append("_id", new ObjectId(p.getId())).get();
         DBObject data = this.col.findOne(query);
         if (data != null) {
-            DBObjectConverter.toObject(data, tableName);
+            DBObjectConverter.toObject(data);
         }
         this.col.remove(query);
     }
 
-    public MongoObject readMongoObject(MongoObject p, String tableName) {
+    public BookingInfo readMongoObject(BookingInfo p) {
+
         DBObject query = BasicDBObjectBuilder.start()
                 .append("_id", new ObjectId(p.getId())).get();
         DBObject data = this.col.findOne(query);
-        return DBObjectConverter.toObject(data, tableName);
-    }
-
-    public MongoObject readMongoObjectByID(MongoClient client, String tableName, String id) {
-        DBCollection collection = client.getDB("journaldev").getCollection(tableName + "s");
-        DBObject query = BasicDBObjectBuilder.start()
-                .append("_id", new ObjectId(id)).get();
-        DBObject data = collection.findOne(query);
-        if (data != null) {
-            return DBObjectConverter.toObject(data, tableName);
-        } else return null;
+        return DBObjectConverter.toObject(data);
     }
 
 }

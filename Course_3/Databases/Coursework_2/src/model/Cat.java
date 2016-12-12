@@ -1,12 +1,23 @@
 package model;
 
+import java.io.Serializable;
 import java.util.HashMap;
 import java.util.HashSet;
 
 /**
  * Created by sitora on 28.11.16.
  */
-public class Cat extends MongoObject{
+public class Cat extends MongoObject implements Serializable {
+    public Cat() {
+    }
+
+    public Cat(String catName, String chipNumber, String hostName, String passNumber, String favoriteMeal) {
+        this.catName = catName;
+        this.chipNumber = chipNumber;
+        this.hostName = hostName;
+        this.passNumber = passNumber;
+        this.favoriteMeal = favoriteMeal;
+    }
 
     private final static HashSet<String> params;
 
@@ -15,62 +26,64 @@ public class Cat extends MongoObject{
     }
 
     public final static HashMap<String, String> foreign_keys;
+
     static {
         foreign_keys = new HashMap<>();
-        foreign_keys.put("host_id", "Host");
+        foreign_keys.put("hostName", "Host");
         params = new HashSet<>();
-        params.add("name");
-        params.add("microchip_number");
-        params.add("host_id");
-        params.add("pass_number");
-        params.add("favorite_meal_id");
+        params.add("catName");
+        params.add("chipNumber");
+//        params.add("hostName");
+        params.add("passNumber");
+        params.add("favoriteMeal");
     }
+
     private String id;
     private Boolean hasLinks;
-    private String name;
-    private String microchip_number;
-    private String host_id;
-    private String pass_number;
-    private String favorite_meal_id;
+    private String catName;
+    private String chipNumber;
+    private String hostName;
+    private String passNumber;
+    private String favoriteMeal;
 
-    public String getName() {
-        return name;
+    public String getCatName() {
+        return catName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setCatName(String catName) {
+        this.catName = catName;
     }
 
-    public String getMicrochip_number() {
-        return microchip_number;
+    public String getChipNumber() {
+        return chipNumber;
     }
 
-    public void setMicrochip_number(String microchip_number) {
-        this.microchip_number = microchip_number;
+    public void setChipNumber(String chipNumber) {
+        this.chipNumber = chipNumber;
     }
 
-    public String getHost_id() {
-        return host_id;
+    public String getHostName() {
+        return hostName;
     }
 
-    public void setHost_id(String host_id) {
-        this.host_id = host_id;
+    public void setHostName(String hostName) {
+        this.hostName = hostName;
     }
 
-    public String getPass_number() {
-        return pass_number;
+    public String getPassNumber() {
+        return passNumber;
     }
 
-    public void setPass_number(String pass_number) {
-        this.pass_number = pass_number;
+    public void setPassNumber(String passNumber) {
+        this.passNumber = passNumber;
     }
 
-    public String getFavorite_meal_id() {
-        return favorite_meal_id;
+    public String getFavoriteMeal() {
+        return favoriteMeal;
     }
 
-    public void setFavorite_meal_id(String favorite_meal_id) {
-        this.favorite_meal_id = favorite_meal_id;
+    public void setFavoriteMeal(String favoriteMeal) {
+        this.favoriteMeal = favoriteMeal;
     }
 
     @Override

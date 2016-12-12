@@ -1,45 +1,54 @@
 package model;
 
+import java.io.Serializable;
 import java.util.HashMap;
 import java.util.HashSet;
 
-public class Host extends MongoObject {
+public class Host extends MongoObject implements Serializable {
+    public Host() {
+    }
 
     public static final HashSet<String> params;
 
     static {
         params = new HashSet<>();
-        params.add("name");
-        params.add("phone_number");
-        params.add("pass_number");
+        params.add("hostName");
+        params.add("phoneNumber");
+        params.add("hostPass");
     }
 
     private String id;
 
     private Boolean hasLinks;
 
-    private String name;
+    private String hostName;
 
-    private String phone_number;
+    private String phoneNumber;
 
-    private String pass_number;
+    private String hostPass;
 
-    public String getName() {
-        return name;
+    public Host(String hostName, String phoneNumber, String hostPass) {
+        this.hostName = hostName;
+        this.phoneNumber = phoneNumber;
+        this.hostPass = hostPass;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public String getHostName() {
+        return hostName;
     }
 
-    public String getPhone_number() {
-        return phone_number;
+    public void setHostName(String hostName) {
+        this.hostName = hostName;
     }
 
-    public void setPhone_number(String phone_number) {
-        if (phone_number.length() == 11 && phone_number.matches("[0-9]+")) {
-            this.phone_number = phone_number;
-        } else phone_number = null;
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        if (phoneNumber.length() == 11 && phoneNumber.matches("[0-9]+")) {
+            this.phoneNumber = phoneNumber;
+        } else phoneNumber = null;
     }
 
     @Override
@@ -60,14 +69,14 @@ public class Host extends MongoObject {
         return null;
     }
 
-    public String getPass_number() {
-        return pass_number;
+    public String getHostPass() {
+        return hostPass;
     }
 
-    public void setPass_number(String pass_number) {
-        if (pass_number.length() == 10 && pass_number.matches("[0-9]+")) {
-            this.pass_number = pass_number;
-        } else pass_number = null;
+    public void setHostPass(String hostPass) {
+        if (hostPass.length() == 10 && hostPass.matches("[0-9]+")) {
+            this.hostPass = hostPass;
+        } else hostPass = null;
     }
 
     public Boolean getHasLinks() {
