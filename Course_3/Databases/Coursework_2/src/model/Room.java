@@ -23,10 +23,10 @@ public class Room extends MongoObject implements Serializable {
 
     private String id;
     private Boolean hasLinks;
-    private Integer roomPricePerNight;
+    private Double roomPricePerNight;
     private String roomCategory;
 
-    public Room(String roomCategory, Integer roomPricePerNight) {
+    public Room(String roomCategory, Double roomPricePerNight) {
         this.roomCategory = roomCategory;
         this.roomPricePerNight = roomPricePerNight;
     }
@@ -51,11 +51,11 @@ public class Room extends MongoObject implements Serializable {
         return null;
     }
 
-    public Integer getRoomPricePerNight() {
+    public Double getRoomPricePerNight() {
         return roomPricePerNight;
     }
 
-    public void setRoomPricePerNight(Integer roomPricePerNight) {
+    public void setRoomPricePerNight(Double roomPricePerNight) {
         this.roomPricePerNight = roomPricePerNight;
     }
 

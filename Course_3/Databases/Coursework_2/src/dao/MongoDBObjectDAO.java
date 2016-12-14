@@ -10,8 +10,8 @@ import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
-import java.util.HashSet;
 import java.util.Set;
+import java.util.TreeSet;
 
 public class MongoDBObjectDAO {
 
@@ -27,6 +27,7 @@ public class MongoDBObjectDAO {
         this.col.insert(doc);
         ObjectId id = (ObjectId) doc.get("_id");
         bookingInfo.setId(id.toString());
+        jedis.set(("BookingInfo" + "isValid").getBytes(), new byte[]{0});
         return bookingInfo;
     }
 
@@ -34,6 +35,7 @@ public class MongoDBObjectDAO {
         DBObject query = BasicDBObjectBuilder.start()
                 .append("_id", new ObjectId(bookingInfo.getId())).get();
         this.col.update(query, DBObjectConverter.toDBObject(bookingInfo));
+        jedis.set(("BookingInfo" + "isValid").getBytes(), new byte[]{0});
     }
 
     public Set<BookingInfo> readAllMongoObjects() {
@@ -45,7 +47,7 @@ public class MongoDBObjectDAO {
                     ByteArrayInputStream bais = new ByteArrayInputStream(cached);
                     int length = bais.read();
                     ObjectInputStream ois = new ObjectInputStream(bais);
-                    Set<BookingInfo> resultSet = new HashSet<>(length);
+                    Set<BookingInfo> resultSet = new TreeSet();
                     for (int i = 0; i < length; i++) {
                         BookingInfo obj = (BookingInfo) ois.readObject();
                         resultSet.add(obj);
@@ -57,23 +59,13 @@ public class MongoDBObjectDAO {
             }
         }
 
-        Set<BookingInfo> data = new HashSet<>();
+        Set<BookingInfo> data = new TreeSet<>();
         DBCursor cursor = col.find();
         while (cursor.hasNext()) {
             DBObject doc = cursor.next();
             BookingInfo mongoObject = DBObjectConverter.toObject(doc);
             data.add(mongoObject);
         }
-
-//        Set<BookingInfo> entities = new HashSet<>();
-//        try {
-//            ResultSet results;
-//            for (BookingInfo b : data) {
-//                entities.add(b);
-//            }
-//        } catch (Exception e) {
-//            System.err.print(e.getMessage());
-//        }
         try {
             ByteArrayOutputStream baos = new ByteArrayOutputStream();
             baos.write(data.size());
@@ -97,6 +89,7 @@ public class MongoDBObjectDAO {
         if (data != null) {
             DBObjectConverter.toObject(data);
         }
+        jedis.set(("BookingInfo" + "isValid").getBytes(), new byte[]{0});
         this.col.remove(query);
     }
 

@@ -36,41 +36,42 @@
 <c:url value="/edit" var="editURL"></c:url>
 
 <%-- Edit Request --%>
-<div class="inputForm">
-    <c:if test="${requestScope.bookinginfo ne null}">
-        <form action='<c:out value="${editURL}"></c:out>' method="post">
-            <input type="hidden" name="clazz" value="BookingInfo">
-            id: <input type="text" value="${requestScope.bookinginfo.id}"
-                       readonly="readonly" name="id"><br>
-            Cat Name: <input
-                type="text" value="${requestScope.bookinginfo.cat.catName}" name="catName"><br>
-            Chip Number: <input type="text" value="${requestScope.bookinginfo.cat.chipNumber}"
-                                name="chipNumber"><br>
-            Host Name: <input type="text" value="${requestScope.bookinginfo.host.hostName}" name="hostName"><br>
+<c:if test="${requestScope.bookinginfo ne null}">
+    <form action='<c:out value="${editURL}"></c:out>' method="post">
+        <input type="hidden" name="clazz" value="BookingInfo">
+        id: <input type="text" value="${requestScope.bookinginfo.id}"
+                   readonly="readonly" name="id"><br>
+        Cat Name: <input
+            type="text" value="${requestScope.bookinginfo.cat.catName}" name="catName" onblur="checkName(this)"
+            onchange="checkName(this)" onclick="checkName(this)"><br>
+        Chip Number: <input type="text" value="${requestScope.bookinginfo.cat.chipNumber}"
+                            name="chipNumber"><br>
+        Host Name: <input type="text" value="${requestScope.bookinginfo.host.hostName}" name="hostName"><br>
 
-            Cat Pass <input type="text" value="${requestScope.bookinginfo.cat.passNumber}" name="passNumber"><br>
+        Cat Pass <input type="text" value="${requestScope.bookinginfo.cat.passNumber}" name="passNumber"><br>
 
-            Favorite Meal: <input type="text" value="${requestScope.bookinginfo.cat.favoriteMeal}" name="favoriteMeal"><br>
+        Favorite Meal: <input type="text" value="${requestScope.bookinginfo.cat.favoriteMeal}" name="favoriteMeal"><br>
 
-            Phone Number: <input onclick="phonenumber(this)" onblur="phonenumber(this)" onchange="phonenumber(this)" type="text" value="${requestScope.bookinginfo.host.phoneNumber}" name="phoneNumber"><br>
+        Phone Number: <input onclick="phonenumber(this)" onblur="phonenumber(this)" onchange="phonenumber(this)"
+                             type="text" value="${requestScope.bookinginfo.host.phoneNumber}" name="phoneNumber"><br>
 
-            Host Pass: <input onblur="checkPass(this)" onchange="checkPass(this)" onclick="checkPass(this)" type="text" value="${requestScope.bookinginfo.host.hostPass}" name="hostPass"><br>
+        Host Pass: <input onblur="checkPass(this)" onchange="checkPass(this)" onclick="checkPass(this)" type="text"
+                          value="${requestScope.bookinginfo.host.hostPass}" name="hostPass"><br>
 
-            Room Category: <input type="text" value="${requestScope.bookinginfo.room.roomCategory}" name="roomCategory"><br>
+        Room Category: <input type="text" value="${requestScope.bookinginfo.room.roomCategory}" name="roomCategory"><br>
 
-            Room Price: <input type="text"  value="${requestScope.bookinginfo.room.roomPricePerNight}"
-                               name="roomPricePerNight"><br>
+        Room Price: <input type="text" value="${requestScope.bookinginfo.room.roomPricePerNight}"
+                           name="roomPricePerNight"><br>
 
-            <input type="submit" value="Edit Booking">
-        </form>
-    </c:if>
-</div>
+        <input type="submit" value="Edit Booking">
+    </form>
+</c:if>
 
 <%-- Add Request --%>
 <c:if test="${requestScope.bookinginfo eq null}">
     <form action='<c:out value="${addURL}"></c:out>' method="post">
         <input type="hidden" name="clazz" value="BookingInfo">
-        Cat Name: <input
+        Cat Name: <input onblur="checkName(this)" onchange="checkName(this)" onclick="checkName(this)"
             type="text" value="${requestScope.bookinginfo.cat.catName}" name="catName"><br>
         Chip Number: <input type="text" value="${requestScope.bookinginfo.cat.chipNumber}"
                             name="chipNumber"><br>
@@ -80,15 +81,17 @@
 
         Favorite Meal: <input type="text" value="${requestScope.bookinginfo.cat.favoriteMeal}" name="favoriteMeal"><br>
 
-        Phone Number: <input onclick="phonenumber(this)" onblur="phonenumber(this)" onchange="phonenumber(this)" type="text" value="${requestScope.bookinginfo.host.phoneNumber}" name="phoneNumber"><br>
+        Phone Number: <input onclick="phonenumber(this)" onblur="phonenumber(this)" onchange="phonenumber(this)"
+                             type="text" value="${requestScope.bookinginfo.host.phoneNumber}" name="phoneNumber"><br>
 
-        Host Pass: <input onblur="checkPass(this)" onchange="checkPass(this)" onclick="checkPass(this)" type="text" value="${requestScope.bookinginfo.host.hostPass}" name="hostPass"><br>
+        Host Pass: <input onblur="checkPass(this)" onchange="checkPass(this)" onclick="checkPass(this)" type="text"
+                          value="${requestScope.bookinginfo.host.hostPass}" name="hostPass"><br>
 
         Room Category: <input type="text" value="${requestScope.bookinginfo.room.roomCategory}" name="roomCategory"><br>
 
-        Room Price: <input type="text"  value="${requestScope.bookinginfo.room.roomPricePerNight}"
+        Room Price: <input type="text" value="${requestScope.bookinginfo.room.roomPricePerNight}"
                            name="roomPricePerNight"><br>
-        <input type="submit" id="sButton" value="Add Booking">
+        <input type="submit" id="sButton" value="Add Booking" disabled="false">
     </form>
 </c:if>
 

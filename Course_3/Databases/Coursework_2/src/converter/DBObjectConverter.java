@@ -6,6 +6,7 @@ import model.BookingInfo;
 import model.MongoObject;
 import org.apache.commons.beanutils.BeanUtils;
 import org.bson.types.ObjectId;
+
 import java.lang.reflect.InvocationTargetException;
 import java.util.HashSet;
 
@@ -15,13 +16,13 @@ public class DBObjectConverter {
         BasicDBObjectBuilder builder = BasicDBObjectBuilder.start();
         if (bookingInfo.getId() != null) {
             builder = builder.append("_id", new ObjectId(bookingInfo.getId()));
-        } else {
-            builder.append("cat", toDBObject(bookingInfo.getCat(), bookingInfo.getCat().getParams()));
-            builder.append("host", toDBObject(bookingInfo.getHost(), bookingInfo.getHost().getParams()));
-            builder.append("room", toDBObject(bookingInfo.getRoom(), bookingInfo.getRoom().getParams()));
-//          builder.append("price", bookingInfo.getPrice());
         }
-        String a = builder.get().toString();
+        builder.append("cat", toDBObject(bookingInfo.getCat(), bookingInfo.getCat().getParams()));
+        builder.append("host", toDBObject(bookingInfo.getHost(), bookingInfo.getHost().getParams()));
+        builder.append("room", toDBObject(bookingInfo.getRoom(), bookingInfo.getRoom().getParams()));
+//          builder.append("price", bookingInfo.getPrice());
+
+        DBObject a = builder.get();
         return builder.get();
     }
 
@@ -32,10 +33,9 @@ public class DBObjectConverter {
                 builder = builder.append("_id", new ObjectId(mongoObject.getId()));
             } else {
                 try {
-                    if(string =="roomPricePerNight"){
-                        builder.append("roomPricePerNight", Integer.parseInt(BeanUtils.getProperty(mongoObject, string)));
-                    }
-                    else {
+                    if (string == "roomPricePerNight") {
+                        builder.append("roomPricePerNight", Double.parseDouble(BeanUtils.getProperty(mongoObject, string)));
+                    } else {
                         builder.append(string, BeanUtils.getProperty(mongoObject, string));
                     }
 
@@ -56,7 +56,7 @@ public class DBObjectConverter {
         bookingInfo = new BookingInfo();
         for (String s : doc.keySet()) {
             switch (s) {
-                case "_id":{
+                case "_id": {
                     ObjectId id = (ObjectId) doc.get("_id");
                     bookingInfo.setId(id.toString());
                     break;

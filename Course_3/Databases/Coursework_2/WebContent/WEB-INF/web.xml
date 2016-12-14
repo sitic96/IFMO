@@ -12,7 +12,14 @@
         <servlet-name>add</servlet-name>
         <url-pattern>/add</url-pattern>
     </servlet-mapping>
-
+<servlet>
+    <servlet-name>start</servlet-name>
+    <servlet-class>servlets.MainServlet</servlet-class>
+</servlet>
+    <servlet-mapping>
+        <servlet-name>start</servlet-name>
+        <url-pattern>/start</url-pattern>
+    </servlet-mapping>
     <servlet>
         <servlet-name>remove</servlet-name>
         <servlet-class>servlets.DeleteServlet</servlet-class>
@@ -39,6 +46,6 @@
     </context-param>
 
     <welcome-file-list>
-        <welcome-file>bookinginfos.jsp</welcome-file>
+        <welcome-file>/start</welcome-file>
     </welcome-file-list>
 </web-app>

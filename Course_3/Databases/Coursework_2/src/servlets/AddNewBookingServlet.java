@@ -75,7 +75,7 @@ public class AddNewBookingServlet extends HttpServlet {
 
     private Room getRoom(HttpServletRequest request) {
         Room room = new Room(request.getParameter("roomCategory"),
-                Integer.parseInt(request.getParameter("roomPricePerNight"))
+                Double.parseDouble(request.getParameter("roomPricePerNight"))
         );
         return room;
     }

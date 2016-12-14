@@ -51,24 +51,29 @@ public class EditServlet extends HttpServlet {
         if (id == null || "".equals(id)) {
             throw new ServletException("id missing for edit operation");
         }
-        Cat cat = getCat(request);
-        Host host = getHost(request);
-        Room room = getRoom(request);
-        MongoClient mongo = (MongoClient) request.getServletContext()
-                .getAttribute("MONGO_CLIENT");
-        MongoDBObjectDAO mongoDBObjectDAO = new MongoDBObjectDAO(mongo);
-        BookingInfo bookingInfo = new BookingInfo(cat, host, room);
-        mongoDBObjectDAO.updateMongoObject(bookingInfo);
-        System.out.println("Booking edited successfully with id=" + id);
-        request.setAttribute("success", "Bokking edited successfully");
-        Set<BookingInfo> bookingInfos = mongoDBObjectDAO.readAllMongoObjects();
-        request.setAttribute("bookinginfos", bookingInfos);
+        try {
+            Cat cat = getCat(request);
+            Host host = getHost(request);
+            Room room = getRoom(request);
+            MongoClient mongo = (MongoClient) request.getServletContext()
+                    .getAttribute("MONGO_CLIENT");
+            MongoDBObjectDAO mongoDBObjectDAO = new MongoDBObjectDAO(mongo);
+            BookingInfo bookingInfo = new BookingInfo(cat, host, room);
+            bookingInfo.setId(id);
+            mongoDBObjectDAO.updateMongoObject(bookingInfo);
+            System.out.println("Booking edited successfully with id=" + id);
+            request.setAttribute("success", "Bokking edited successfully");
+            Set<BookingInfo> bookingInfos = mongoDBObjectDAO.readAllMongoObjects();
+            request.setAttribute("bookinginfos", bookingInfos);
+            RequestDispatcher rd = getServletContext().getRequestDispatcher(
+                    "/bookinginfos.jsp");
+            rd.forward(request, response);
+        } catch (Exception e) {
+            e.printStackTrace();
+            response.sendRedirect("/start");
+        }
 
-        RequestDispatcher rd = getServletContext().getRequestDispatcher(
-                "/bookinginfos.jsp");
-        rd.forward(request, response);
     }
-
 
     private Cat getCat(HttpServletRequest request) {
         Cat cat = new Cat(request.getParameter("catName"),
@@ -89,7 +94,7 @@ public class EditServlet extends HttpServlet {
 
     private Room getRoom(HttpServletRequest request) {
         Room room = new Room(request.getParameter("roomCategory"),
-                Integer.parseInt(request.getParameter("roomPricePerNight"))
+               Double.parseDouble(request.getParameter("roomPricePerNight"))
         );
         return room;
     }

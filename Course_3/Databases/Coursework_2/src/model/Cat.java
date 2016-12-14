@@ -8,7 +8,28 @@ import java.util.HashSet;
  * Created by sitora on 28.11.16.
  */
 public class Cat extends MongoObject implements Serializable {
+
+    private String id;
+    private Boolean hasLinks;
+    private String catName;
+    private String chipNumber;
+    private String hostName;
+    private String passNumber;
+    private String favoriteMeal;
+    private final static HashSet<String> params;
+    public final static HashMap<String, String> foreign_keys;
+
     public Cat() {
+    }
+
+    static {
+        foreign_keys = new HashMap<>();
+        foreign_keys.put("hostName", "Host");
+        params = new HashSet<>();
+        params.add("catName");
+        params.add("chipNumber");
+        params.add("passNumber");
+        params.add("favoriteMeal");
     }
 
     public Cat(String catName, String chipNumber, String hostName, String passNumber, String favoriteMeal) {
@@ -19,32 +40,9 @@ public class Cat extends MongoObject implements Serializable {
         this.favoriteMeal = favoriteMeal;
     }
 
-    private final static HashSet<String> params;
-
     public HashMap<String, String> getForeign_keys() {
         return foreign_keys;
     }
-
-    public final static HashMap<String, String> foreign_keys;
-
-    static {
-        foreign_keys = new HashMap<>();
-        foreign_keys.put("hostName", "Host");
-        params = new HashSet<>();
-        params.add("catName");
-        params.add("chipNumber");
-//        params.add("hostName");
-        params.add("passNumber");
-        params.add("favoriteMeal");
-    }
-
-    private String id;
-    private Boolean hasLinks;
-    private String catName;
-    private String chipNumber;
-    private String hostName;
-    private String passNumber;
-    private String favoriteMeal;
 
     public String getCatName() {
         return catName;

@@ -5,13 +5,11 @@ import java.io.Serializable;
 /**
  * Created by sitora on 04.12.16.
  */
-public class BookingInfo implements Serializable{
+public class BookingInfo implements Serializable, Comparable<BookingInfo> {
     private Cat cat;
     private Host host;
     private Room room;
-//    private Integer price;
     private String id;
-
     public BookingInfo(Cat cat, Host host, Room room) {
         this.cat = cat;
         this.host = host;
@@ -63,4 +61,9 @@ public class BookingInfo implements Serializable{
         this.id = id;
     }
 
+    @Override
+    public int compareTo(BookingInfo o) {
+        if (this.id.equals(o.getId())) return 0;
+        else return -1;
+    }
 }
