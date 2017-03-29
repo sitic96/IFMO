@@ -1,4 +1,4 @@
-package data;
+package data.conditions;
 
 import data.enums.Speed;
 
@@ -35,6 +35,38 @@ public class Wind {
             this.maxObservedSpeed = maxObservedSpeed;
             this.speedType = speed1;
         } else throw new IllegalArgumentException("Exception in wind args");
+    }
+
+    public int getDest() {
+        return dest;
+    }
+
+    public int getSpeed() {
+        return speed;
+    }
+
+    public int getMaxObservedSpeed() {
+        return maxObservedSpeed;
+    }
+
+    public Speed getSpeedType() {
+        return speedType;
+    }
+
+    public void setDest(int dest) {
+        this.dest = dest;
+    }
+
+    public void setSpeed(int speed) {
+        this.speed = speed;
+    }
+
+    public void setMaxObservedSpeed(int maxObservedSpeed) {
+        this.maxObservedSpeed = maxObservedSpeed;
+    }
+
+    public void setSpeedType(Speed speedType) {
+        this.speedType = speedType;
     }
 
     @Override

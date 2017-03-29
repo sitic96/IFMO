@@ -1,4 +1,4 @@
-package data;
+package data.conditions;
 
 /**
  * Created by sitora on 26.03.17.
@@ -37,7 +37,7 @@ public class Visibility {
 
     public Visibility(double distance, DistanceType distanceType, Runway runway) {
         if (distanceType == DistanceType.METERS) {
-            if (distance > 0 && distance <= 1500) {
+            if (distance >= 0 && distance <= 1500) {
                 this.meters = (int) distance;
                 this.runway = runway;
             } else if (distance > 1500) {
@@ -52,6 +52,38 @@ public class Visibility {
             } else throw new IllegalArgumentException("Exception in visibility params");
         } else throw new IllegalArgumentException("Exception in visibility params");
         this.distanceType = distanceType;
+    }
+
+    public int getMeters() {
+        return meters;
+    }
+
+    public double getMiles() {
+        return miles;
+    }
+
+    public DistanceType getDistanceType() {
+        return distanceType;
+    }
+
+    public Runway getRunway() {
+        return runway;
+    }
+
+    public void setMeters(int meters) {
+        this.meters = meters;
+    }
+
+    public void setMiles(double miles) {
+        this.miles = miles;
+    }
+
+    public void setDistanceType(DistanceType distanceType) {
+        this.distanceType = distanceType;
+    }
+
+    public void setRunway(Runway runway) {
+        this.runway = runway;
     }
 
     @Override
