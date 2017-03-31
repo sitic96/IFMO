@@ -6,6 +6,7 @@ import data.enums.Type;
 /**
  * Created by sitora on 26.03.17.
  */
+
 public class Condition {
     Type type;
     String IKAO;

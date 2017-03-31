@@ -1,5 +1,6 @@
 package generator;
 
+import connectors.RedisConnector;
 import data.AirportInfo;
 import data.Condition;
 import data.conditions.*;
@@ -17,7 +18,7 @@ import java.util.Random;
 public class AirportInfoGenerator {
     private final Random RANDOM = new Random();
     private final int MIN_DAY = (int) LocalDate.of(2016, 1, 1).toEpochDay();
-    private final int MAX_DAY = (int) LocalDate.of(2017, 3, 25).toEpochDay();
+    private final int MAX_DAY = (int) LocalDate.of(2017, 3, 31).toEpochDay();
     private AirportInfo airportInfo;
     private Condition condition;
     private Pressure pressure;
@@ -30,7 +31,7 @@ public class AirportInfoGenerator {
         airportInfo.setAirport(generateAirport());
         airportInfo.setDate(generateDate());
         airportInfo.setCondition(generateCondition());
-
+        RedisConnector.getInstance().save(airportInfo.getCondition());
         return airportInfo;
     }
 

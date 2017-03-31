@@ -29,9 +29,7 @@ public class RedisConnector implements Connector {
     }
 
     public void save(Condition airportCondition) {
-        jedis.sadd("foo", "bar");
-        jedis.sadd("foo", "megaBar");
-        System.out.println(jedis.get("foo"));
+        jedis.set(airportCondition.getIKAO(), airportCondition.toString());
     }
 
     public Jedis getJedis() {

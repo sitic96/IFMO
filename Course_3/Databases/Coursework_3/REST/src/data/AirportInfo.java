@@ -1,16 +1,23 @@
 package data;
 
 import data.enums.Airport;
+import redis.clients.johm.Attribute;
+import redis.clients.johm.Model;
 
 import java.time.LocalDate;
 
 /**
  * Created by sitora on 27.03.17.
  */
+@Model
 public class AirportInfo {
+    @Attribute
     private String id;
+    @Attribute
     private Airport airport;
+    @Attribute
     private Condition condition;
+    @Attribute
     private LocalDate date;
 
     public AirportInfo() {

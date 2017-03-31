@@ -47,6 +47,8 @@ public class MongoConnector implements Connector {
         collection.insert(toDBObject(airportInfo));
     }
 
+    
+
     private Date convertLocalDate(LocalDate localDate) {
         return Date.from(localDate.atStartOfDay(ZoneId.systemDefault()).toInstant());
     }
