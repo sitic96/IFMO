@@ -74,36 +74,4 @@ public class YahooTests {
                 ExpectedConditions.visibilityOfElementLocated(By.xpath("//input[@class='typeahead-input typeahead-input-usertext']"))).sendKeys("hello");
         driver.findElement(By.id("mail-search-btn")).click();
     }
-
-    @Test
-    public void writeEmail() {
-        new WebDriverWait(driver, 10).until(
-                ExpectedConditions.visibilityOfElementLocated(By.xpath("//button[@class='btn btn-compose']"))).click();
-        new WebDriverWait(driver, 10).until(
-                ExpectedConditions.visibilityOfElementLocated(By.id("to-field"))).sendKeys("wersa2002@gmail.com");
-        driver.findElement(By.id("subject-field")).sendKeys("Hello World!");
-        driver.findElement(By.id("rtetext")).sendKeys("Hi! I'm testing you!");
-
-        editEmail();
-    }
-
-    public void editEmail() {
-        new WebDriverWait(driver, 10).until(
-                ExpectedConditions.visibilityOfElementLocated(By.id("btn-fontnamesize"))).click();
-
-        for (int i = 0; i < fonts.size(); i++) {
-            new WebDriverWait(driver, 10).until(
-                    ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[@style='" + fonts.get(i) + "']"))).click();
-            for (int j = 0; j < sizes.size(); j++) {
-                new WebDriverWait(driver, 10).until(
-                        ExpectedConditions.visibilityOfElementLocated(By.id("btn-fontnamesize"))).click();
-                new WebDriverWait(driver, 10).until(
-                        ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[@style='" + sizes.get(j) + "']"))).click();
-
-                driver.findElement(By.id("rtetext")).sendKeys("This is new style! ");
-            }
-            new WebDriverWait(driver, 10).until(
-                    ExpectedConditions.visibilityOfElementLocated(By.id("btn-fontnamesize"))).click();
-        }
-    }
 }
