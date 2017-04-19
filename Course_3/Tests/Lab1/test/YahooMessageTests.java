@@ -1,9 +1,7 @@
-import org.junit.AfterClass;
-import org.junit.BeforeClass;
+import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -13,17 +11,12 @@ import java.util.List;
 /**
  * Created by sitora on 18.04.17.
  */
-public class YahooMessageTests {
+public class YahooMessageTests extends YahooTests {
     private static List<String> fonts, sizes;
     private static WebDriver driver;
-    private static String url;
+    private static boolean isSetUp = false;
 
-    @BeforeClass
-    public static void setParams() {
-        System.setProperty("webdriver.gecko.driver", "/users/mac/downloads/geckodriver");
-        driver = new FirefoxDriver();
-        url = "https://mail.yahoo.com/";
-
+    static {
         fonts = new ArrayList<String>();
         sizes = new ArrayList<String>();
 
@@ -41,22 +34,24 @@ public class YahooMessageTests {
         sizes.add("font-size:24px;");
         sizes.add("font-size:32px;");
         sizes.add("font-size:48px;");
-
-        driver.navigate().to(url);
-
-        driver.findElement(By.id("login-username")).sendKeys("redastify");
-        driver.findElement(By.id("login-signin")).click();
-        new WebDriverWait(driver, 10).until(
-                ExpectedConditions.visibilityOfElementLocated(By.id("login-passwd"))).sendKeys("my_password");
-        driver.findElement(By.id("login-signin")).click();
-        new WebDriverWait(driver, 10).until(
-                ExpectedConditions.visibilityOfElementLocated(By.xpath("//button[@class='btn btn-compose']"))).click();
     }
 
-    @AfterClass
-    public static void closeWindow() {
-        driver.findElement(By.id("btn-draft-delete")).click();
-        driver.quit();
+    @Before
+    public void init() {
+        System.out.println("Login");
+        if (isSetUp) {
+            System.out.println("True");
+            return;
+        } else {
+            super.login();
+            System.out.println("False");
+            this.driver = super.driver;
+            new WebDriverWait(driver, 10).until(
+                    ExpectedConditions.visibilityOfElementLocated(By.xpath("//button[@class='btn btn-compose']"))).click();
+            new WebDriverWait(driver, 10).until(
+                    ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[@class='btn default']")));
+            isSetUp = true;
+        }
     }
 
     @Test

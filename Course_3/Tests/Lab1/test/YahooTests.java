@@ -1,24 +1,19 @@
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
-import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import java.util.ArrayList;
-import java.util.List;
-
 
 /**
  * Created by sitora on 10.04.17.
  */
 public class YahooTests {
-    private static List<String> fonts, sizes;
     private static boolean isLogin = false;
-    private static WebDriver driver;
+    protected static WebDriver driver;
     private static String url;
 
     @BeforeClass
@@ -26,25 +21,6 @@ public class YahooTests {
         System.setProperty("webdriver.gecko.driver", "/users/mac/downloads/geckodriver");
         driver = new FirefoxDriver();
         url = "https://mail.yahoo.com/";
-
-        fonts = new ArrayList<String>();
-        sizes = new ArrayList<String>();
-
-        fonts.add("font-family: HelveticaNeue, Helvetica Neue, Helvetica, Arial, Lucida Grande, sans-serif;");
-        fonts.add("font-family: verdana, helvetica, sans-serif;");
-        fonts.add("font-family: times new roman, new york, times, serif;");
-        fonts.add("font-family: bookman old style, new york, times, serif;");
-        fonts.add("font-family: Courier New, courier, monaco, monospace, sans-serif;");
-        fonts.add("font-family: garamond, new york, times, serif;");
-        fonts.add("font-family: lucida console, sans-serif;");
-
-        sizes.add("font-size:10px;");
-        sizes.add("font-size:13px;");
-        sizes.add("font-size:16px;");
-        sizes.add("font-size:24px;");
-        sizes.add("font-size:32px;");
-        sizes.add("font-size:48px;");
-
         driver.navigate().to(url);
     }
 
@@ -68,10 +44,10 @@ public class YahooTests {
         }
     }
 
-    @Test
-    public void searchMail() {
-        new WebDriverWait(driver, 10).until(
-                ExpectedConditions.visibilityOfElementLocated(By.xpath("//input[@class='typeahead-input typeahead-input-usertext']"))).sendKeys("hello");
-        driver.findElement(By.id("mail-search-btn")).click();
-    }
+//    @Test
+//    public void searchMail() {
+//        new WebDriverWait(driver, 10).until(
+//                ExpectedConditions.visibilityOfElementLocated(By.xpath("//input[@class='typeahead-input typeahead-input-usertext']"))).sendKeys("hello");
+//        driver.findElement(By.id("mail-search-btn")).click();
+//    }
 }
