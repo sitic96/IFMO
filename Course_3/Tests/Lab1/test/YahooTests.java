@@ -44,10 +44,4 @@ public class YahooTests {
         }
     }
 
-//    @Test
-//    public void searchMail() {
-//        new WebDriverWait(driver, 10).until(
-//                ExpectedConditions.visibilityOfElementLocated(By.xpath("//input[@class='typeahead-input typeahead-input-usertext']"))).sendKeys("hello");
-//        driver.findElement(By.id("mail-search-btn")).click();
-//    }
 }
