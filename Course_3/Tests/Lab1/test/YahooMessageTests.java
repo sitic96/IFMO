@@ -131,16 +131,16 @@ public class YahooMessageTests extends YahooTests {
                 ExpectedConditions.visibilityOfElementLocated(By.xpath("//li[@class='emoticon_35']"))).click();
     }
 
-    public void hidePanel() {
-        //Hide/Show panel
-        driver.findElement(By.id("switchtext-rich")).click();
-        new WebDriverWait(driver, 10).until(
-                ExpectedConditions.visibilityOfElementLocated(By.id("cancelModalOverlay"))).click();
-        new WebDriverWait(driver, 10).until(
-                ExpectedConditions.visibilityOfElementLocated(By.id("switchtext-rich"))).click();
-        new WebDriverWait(driver, 10).until(
-                ExpectedConditions.visibilityOfElementLocated(By.id("okayModalOverlay"))).click();
-        new WebDriverWait(driver, 10).until(
-                ExpectedConditions.visibilityOfElementLocated(By.id("switchtext-plain"))).click();
-    }
+//    public void hidePanel() {
+//        //Hide/Show panel
+//        driver.findElement(By.id("switchtext-rich")).click();
+//        new WebDriverWait(driver, 10).until(
+//                ExpectedConditions.visibilityOfElementLocated(By.id("cancelModalOverlay"))).click();
+//        new WebDriverWait(driver, 10).until(
+//                ExpectedConditions.visibilityOfElementLocated(By.id("switchtext-rich"))).click();
+//        new WebDriverWait(driver, 10).until(
+//                ExpectedConditions.visibilityOfElementLocated(By.id("okayModalOverlay"))).click();
+//        new WebDriverWait(driver, 10).until(
+//                ExpectedConditions.visibilityOfElementLocated(By.id("switchtext-plain"))).click();
+//    }
 }
