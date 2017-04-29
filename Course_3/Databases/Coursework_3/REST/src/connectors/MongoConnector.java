@@ -36,18 +36,9 @@ public class MongoConnector implements Connector {
         collection = db.getCollection("airports");
     }
 
-//    @Override
-//    public void save(Object o) {
-//        if (o instanceof AirportInfo) {
-//            this.save((AirportInfo) o);
-//        } else throw new ClassCastException("Can't cast to AirportInfo");
-//    }
-
     public void save(AirportInfo airportInfo) {
         collection.insert(toDBObject(airportInfo));
     }
-
-    
 
     private Date convertLocalDate(LocalDate localDate) {
         return Date.from(localDate.atStartOfDay(ZoneId.systemDefault()).toInstant());

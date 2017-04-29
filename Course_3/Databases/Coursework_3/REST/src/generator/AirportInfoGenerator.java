@@ -1,6 +1,5 @@
 package generator;
 
-import connectors.RedisConnector;
 import data.AirportInfo;
 import data.Condition;
 import data.conditions.*;
@@ -31,8 +30,19 @@ public class AirportInfoGenerator {
         airportInfo.setAirport(generateAirport());
         airportInfo.setDate(generateDate());
         airportInfo.setCondition(generateCondition());
-        RedisConnector.getInstance().save(airportInfo.getCondition());
         return airportInfo;
+    }
+
+    public List<Condition> generateConditions(int count) {
+        List<Condition> conditions = new ArrayList<>();
+        if (count > 0) {
+            for (int i = 0; i < count; i++) {
+                conditions.add(generateCondition());
+            }
+        } else {
+            throw new IllegalArgumentException("Count less than 0");
+        }
+        return conditions;
     }
 
     public List<AirportInfo> generate(int count) {
