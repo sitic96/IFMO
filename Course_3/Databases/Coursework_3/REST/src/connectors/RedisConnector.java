@@ -32,7 +32,7 @@ public class RedisConnector implements Connector {
         jedis.set(airportCondition.getIKAO(), airportCondition.toString());
     }
 
-    public Jedis getJedis() {
-        return jedis;
+    public String get(String key){
+        return jedis.get(key);
     }
 }

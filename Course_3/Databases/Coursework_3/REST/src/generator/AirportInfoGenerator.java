@@ -17,17 +17,16 @@ import java.util.Random;
 public class AirportInfoGenerator {
     private final Random RANDOM = new Random();
     private final int MIN_DAY = (int) LocalDate.of(2016, 1, 1).toEpochDay();
-    private final int MAX_DAY = (int) LocalDate.of(2017, 3, 31).toEpochDay();
+    private final int MAX_DAY = (int) LocalDate.of(2017, 5, 5).toEpochDay();
     private AirportInfo airportInfo;
     private Condition condition;
-    private Pressure pressure;
 
     public AirportInfoGenerator() {
     }
 
     public AirportInfo generate() {
         airportInfo = new AirportInfo();
-        airportInfo.setAirport(generateAirport());
+        airportInfo.setAirport(AirportCodeGenerator.getRandomCode());
         airportInfo.setDate(generateDate());
         airportInfo.setCondition(generateCondition());
         return airportInfo;
@@ -55,10 +54,6 @@ public class AirportInfoGenerator {
         } else throw new IllegalArgumentException("Count should be positive!");
     }
 
-    private Airport generateAirport() {
-        return Airport.randomAirport();
-    }
-
     private LocalDate generateDate() {
         long randomDay = MIN_DAY + RANDOM.nextInt(MAX_DAY - MIN_DAY);
         LocalDate day = LocalDate.ofEpochDay(randomDay);
@@ -67,7 +62,7 @@ public class AirportInfoGenerator {
 
     private Condition generateCondition() {
         condition = new Condition();
-        condition.setIKAO(airportInfo.getAirport().getIkao());
+        condition.setIKAO(airportInfo.getAirport());
         condition.setPressure(new Pressure(PressureType.randomPressureType(), RANDOM.nextInt(9999)));
         condition.setSkyCondition(new SkyCondition(SkyConditions.randomSkyCondition(), RANDOM.nextInt(999)));
         condition.setTemperature(new Temperature(RANDOM.nextInt((99 - -99) + 1) + -99, RANDOM.nextInt((99 - -99) + 1) + -99));

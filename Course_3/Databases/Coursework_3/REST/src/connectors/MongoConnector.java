@@ -3,13 +3,16 @@ package connectors;
 import com.mongodb.*;
 import data.AirportInfo;
 import data.Condition;
+import data.DataConverter;
 import data.conditions.Wind;
 import data.enums.Airport;
 import org.bson.types.ObjectId;
 
 import java.time.LocalDate;
 import java.time.ZoneId;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 /**
  * Created by sitora on 27.03.17.
@@ -49,7 +52,7 @@ public class MongoConnector implements Connector {
         if (airportInfo.getId() != null) {
             builder = builder.append("id", new ObjectId(airportInfo.getId()));
         }
-        builder.append("airport", toDBObject(airportInfo.getAirport()));
+        builder.append("airport", airportInfo.getAirport());
         builder.append("date", convertLocalDate(airportInfo.getDate()));
         builder.append("condition", toDBObject(airportInfo.getCondition()));
 
@@ -85,5 +88,16 @@ public class MongoConnector implements Connector {
         builder.append("maxObservedSpeed", wind.getMaxObservedSpeed());
         builder.append("speedType", wind.getSpeedType().toString());
         return builder.get();
+    }
+
+    public List<AirportInfo> getAllAirportInfoByAirportCode(String code) {
+        List<AirportInfo> infos = new ArrayList<>();
+        DBObject query = BasicDBObjectBuilder.start()
+                .append("airport.code", code).get();
+        DBCursor dbObjects = collection.find(query);
+        while (dbObjects.hasNext()) {
+            infos.add(DataConverter.toAirportInfo(dbObjects.next()));
+        }
+        return infos;
     }
 }

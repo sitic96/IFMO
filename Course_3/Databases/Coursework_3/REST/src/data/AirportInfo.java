@@ -1,6 +1,5 @@
 package data;
 
-import data.enums.Airport;
 import redis.clients.johm.Attribute;
 import redis.clients.johm.Model;
 
@@ -14,7 +13,7 @@ public class AirportInfo {
     @Attribute
     private String id;
     @Attribute
-    private Airport airport;
+    private String airport;
     @Attribute
     private Condition condition;
     @Attribute
@@ -23,17 +22,17 @@ public class AirportInfo {
     public AirportInfo() {
     }
 
-    public AirportInfo(Airport airport, Condition condition, LocalDate date) {
+    public AirportInfo(String airport, Condition condition, LocalDate date) {
         this.airport = airport;
         this.condition = condition;
         this.date = date;
     }
 
-    public Airport getAirport() {
+    public String getAirport() {
         return airport;
     }
 
-    public void setAirport(Airport airport) {
+    public void setAirport(String airport) {
         this.airport = airport;
     }
 
