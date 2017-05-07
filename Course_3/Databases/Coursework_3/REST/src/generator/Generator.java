@@ -9,8 +9,12 @@ import data.AirportInfo;
 public class Generator {
     public static void main(String[] args) {
         AirportCodeGenerator.generate(40000);
-        generateMongoData();
-        generateNeo4jData();
+        //generateMongoData();
+        System.out.println("Mongo ready!");
+        //generateNeo4jData();
+        System.out.println("Neo4j ready!");
+        generateMySQLData();
+        System.out.println("MySQL ready!");
     }
 
     public static void generateMongoData() {
@@ -25,7 +29,7 @@ public class Generator {
         neo4jDataGenerator.generate(AirportCodeGenerator.getCodesCount());
     }
 
-    public static void generateMySQLData(){
-
+    public static void generateMySQLData() {
+        MySQLDataGenerator.generate();
     }
 }
