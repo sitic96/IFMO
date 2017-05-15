@@ -53,7 +53,7 @@ public class MongoConnector implements Connector {
             builder = builder.append("id", new ObjectId(airportInfo.getId()));
         }
         builder.append("airport", airportInfo.getAirport());
-        builder.append("date", convertLocalDate(airportInfo.getDate()));
+        builder.append("date", airportInfo.getDate());
         builder.append("condition", toDBObject(airportInfo.getCondition()));
 
         return builder.get();
@@ -93,7 +93,7 @@ public class MongoConnector implements Connector {
     public List<AirportInfo> getAllAirportInfoByAirportCode(String code) {
         List<AirportInfo> infos = new ArrayList<>();
         DBObject query = BasicDBObjectBuilder.start()
-                .append("airport.code", code).get();
+                .append("airport", code).get();
         DBCursor dbObjects = collection.find(query);
         while (dbObjects.hasNext()) {
             infos.add(DataConverter.toAirportInfo(dbObjects.next()));

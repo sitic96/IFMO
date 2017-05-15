@@ -7,7 +7,9 @@ import data.conditions.WeatherPhenomena;
 import data.enums.*;
 
 import java.time.LocalDate;
+import java.time.ZoneId;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Random;
 
@@ -54,10 +56,10 @@ public class AirportInfoGenerator {
         } else throw new IllegalArgumentException("Count should be positive!");
     }
 
-    private LocalDate generateDate() {
+    private Date generateDate() {
         long randomDay = MIN_DAY + RANDOM.nextInt(MAX_DAY - MIN_DAY);
         LocalDate day = LocalDate.ofEpochDay(randomDay);
-        return day;
+        return Date.from(day.atStartOfDay(ZoneId.systemDefault()).toInstant());
     }
 
     private Condition generateCondition() {
@@ -66,7 +68,7 @@ public class AirportInfoGenerator {
         condition.setPressure(new Pressure(PressureType.randomPressureType(), RANDOM.nextInt(9999)));
         condition.setSkyCondition(new SkyCondition(SkyConditions.randomSkyCondition(), RANDOM.nextInt(999)));
         condition.setTemperature(new Temperature(RANDOM.nextInt((99 - -99) + 1) + -99, RANDOM.nextInt((99 - -99) + 1) + -99));
-        condition.setTime(new Time(airportInfo.getDate().getDayOfMonth() + 1, airportInfo.getDate().getMonthValue() + 1, RANDOM.nextInt(60)));
+        condition.setTime(new Time(airportInfo.getDate().getDay() + 1, airportInfo.getDate().getMonth() + 1, RANDOM.nextInt(60)));
         condition.setType(data.enums.Type.randomType());
         condition.setVisibility(new Visibility(RANDOM.nextInt(9999), DistanceType.randomDistanceType(), new Runway(RANDOM.nextInt(9), 'R')));
         condition.setWind(new Wind(RANDOM.nextInt(360), RANDOM.nextInt(99), RANDOM.nextInt(99), Speed.randomSpeed()));

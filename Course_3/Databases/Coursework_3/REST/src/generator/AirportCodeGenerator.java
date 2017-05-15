@@ -18,10 +18,13 @@ public class AirportCodeGenerator {
         codes = new ArrayList<>(count);
         for (int i = 0; i < count; i++) {
             sb = new StringBuilder();
-            for (int j = 0; j < 5; j++) {
+            for (int j = 0; j < 10; j++) {
                 sb.append(chars[RANDOM.nextInt(chars.length)]);
             }
-            codes.add(sb.toString());
+            if (!codes.contains(sb.toString())) {
+                codes.add(sb.toString());
+            } else i--;
+            System.out.println(codes.size());
         }
         return codes;
     }

@@ -8,13 +8,16 @@ import data.AirportInfo;
  */
 public class Generator {
     public static void main(String[] args) {
-        AirportCodeGenerator.generate(40000);
+        AirportCodeGenerator.generate(6000);
+        System.out.println("Codes generated!");
         //generateMongoData();
         System.out.println("Mongo ready!");
         //generateNeo4jData();
         System.out.println("Neo4j ready!");
-        generateMySQLData();
+        //generateMySQLData();
         System.out.println("MySQL ready!");
+        //generateCassandraData();
+        System.out.println("Cassandra ready!");
     }
 
     public static void generateMongoData() {
@@ -31,5 +34,9 @@ public class Generator {
 
     public static void generateMySQLData() {
         MySQLDataGenerator.generate();
+    }
+
+    public static void generateCassandraData() {
+        CassandraGenerator.generate(1000000);
     }
 }

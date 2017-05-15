@@ -3,20 +3,36 @@ package data;
 import data.conditions.*;
 import data.enums.Type;
 
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+
 /**
  * Created by sitora on 26.03.17.
  */
-
+@XmlRootElement()
+@XmlAccessorType(XmlAccessType.FIELD)
 public class Condition {
-    Type type;
+
+    @XmlElement
+    String type;
+    @XmlElement
     String IKAO;
-    Time time;
+    @XmlElement
+    String time;
+    @XmlElement
     Wind wind;
-    Visibility visibility;
-    WeatherPhenomena weatherPhenomena;
-    SkyCondition skyCondition;
-    Temperature temperature;
-    Pressure pressure;
+    @XmlElement
+    String visibility;
+    @XmlElement
+    String weatherPhenomena;
+    @XmlElement
+    String skyCondition;
+    @XmlElement
+    String temperature;
+    @XmlElement
+    String pressure;
 
     public Condition() {
     }
@@ -24,18 +40,18 @@ public class Condition {
     public Condition(Type type, String IKAO, Time time, Wind wind,
                      Visibility visibility, WeatherPhenomena weatherPhenomena, SkyCondition skyCondition,
                      Temperature temperature, Pressure pressure) {
-        this.type = type;
+        this.type = type.toString();
         this.IKAO = IKAO;
-        this.time = time;
+        this.time = time.toString();
         this.wind = wind;
-        this.visibility = visibility;
-        this.weatherPhenomena = weatherPhenomena;
-        this.skyCondition = skyCondition;
-        this.temperature = temperature;
-        this.pressure = pressure;
+        this.visibility = visibility.toString();
+        this.weatherPhenomena = weatherPhenomena.toString();
+        this.skyCondition = skyCondition.toString();
+        this.temperature = temperature.toString();
+        this.pressure = pressure.toString();
     }
 
-    public Type getType() {
+    public String getType() {
         return type;
     }
 
@@ -43,7 +59,7 @@ public class Condition {
         return IKAO;
     }
 
-    public Time getTime() {
+    public String getTime() {
         return time;
     }
 
@@ -51,28 +67,28 @@ public class Condition {
         return wind;
     }
 
-    public Visibility getVisibility() {
+    public String getVisibility() {
         return visibility;
     }
 
-    public WeatherPhenomena getWeatherPhenomena() {
+    public String getWeatherPhenomena() {
         return weatherPhenomena;
     }
 
-    public SkyCondition getSkyCondition() {
+    public String getSkyCondition() {
         return skyCondition;
     }
 
-    public Temperature getTemperature() {
+    public String getTemperature() {
         return temperature;
     }
 
-    public Pressure getPressure() {
+    public String getPressure() {
         return pressure;
     }
 
     public void setType(Type type) {
-        this.type = type;
+        this.type = type.toString();
     }
 
     public void setIKAO(String IKAO) {
@@ -80,7 +96,7 @@ public class Condition {
     }
 
     public void setTime(Time time) {
-        this.time = time;
+        this.time = time.toString();
     }
 
     public void setWind(Wind wind) {
@@ -88,22 +104,50 @@ public class Condition {
     }
 
     public void setVisibility(Visibility visibility) {
-        this.visibility = visibility;
+        this.visibility = visibility.toString();
     }
 
     public void setWeatherPhenomena(WeatherPhenomena weatherPhenomena) {
-        this.weatherPhenomena = weatherPhenomena;
+        this.weatherPhenomena = weatherPhenomena.toString();
     }
 
     public void setSkyCondition(SkyCondition skyCondition) {
-        this.skyCondition = skyCondition;
+        this.skyCondition = skyCondition.toString();
     }
 
     public void setTemperature(Temperature temperature) {
-        this.temperature = temperature;
+        this.temperature = temperature.toString();
     }
 
     public void setPressure(Pressure pressure) {
+        this.pressure = pressure.toString();
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public void setTime(String time) {
+        this.time = time;
+    }
+
+    public void setVisibility(String visibility) {
+        this.visibility = visibility;
+    }
+
+    public void setWeatherPhenomena(String weatherPhenomena) {
+        this.weatherPhenomena = weatherPhenomena;
+    }
+
+    public void setSkyCondition(String skyCondition) {
+        this.skyCondition = skyCondition;
+    }
+
+    public void setTemperature(String temperature) {
+        this.temperature = temperature;
+    }
+
+    public void setPressure(String pressure) {
         this.pressure = pressure;
     }
 

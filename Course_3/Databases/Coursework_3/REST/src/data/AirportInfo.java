@@ -1,28 +1,30 @@
 package data;
 
-import redis.clients.johm.Attribute;
-import redis.clients.johm.Model;
-
-import java.time.LocalDate;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import java.util.Date;
 
 /**
  * Created by sitora on 27.03.17.
  */
-@Model
+@XmlRootElement()
+@XmlAccessorType(XmlAccessType.FIELD)
 public class AirportInfo {
-    @Attribute
+    @XmlElement
     private String id;
-    @Attribute
+    @XmlElement
     private String airport;
-    @Attribute
+    @XmlElement
     private Condition condition;
-    @Attribute
-    private LocalDate date;
+    @XmlElement
+    private Date date;
 
     public AirportInfo() {
     }
 
-    public AirportInfo(String airport, Condition condition, LocalDate date) {
+    public AirportInfo(String airport, Condition condition, Date date) {
         this.airport = airport;
         this.condition = condition;
         this.date = date;
@@ -44,11 +46,11 @@ public class AirportInfo {
         this.condition = condition;
     }
 
-    public LocalDate getDate() {
+    public Date getDate() {
         return date;
     }
 
-    public void setDate(LocalDate date) {
+    public void setDate(Date date) {
         this.date = date;
     }
 

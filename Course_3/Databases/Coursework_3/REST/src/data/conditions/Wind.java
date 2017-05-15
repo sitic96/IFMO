@@ -2,12 +2,20 @@ package data.conditions;
 
 import data.enums.Speed;
 
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+
 /**
  * Created by sitora on 26.03.17.
  */
+@XmlRootElement()
+@XmlAccessorType(XmlAccessType.FIELD)
 public class Wind {
-
+    @XmlElement
     private int dest, speed, maxObservedSpeed;
+    @XmlElement
     Speed speedType;
 
     public Wind() {

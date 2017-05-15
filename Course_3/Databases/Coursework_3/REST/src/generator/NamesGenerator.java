@@ -1,7 +1,6 @@
 package generator;
 
 import com.google.gson.Gson;
-import data.City;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -9,25 +8,25 @@ import java.net.URL;
 import java.util.Random;
 
 /**
- * Created by sitora on 06.05.17.
+ * Created by sitora on 12.05.17.
  */
-public class CityGenerator {
+public class NamesGenerator {
     private final static Random RANDOM = new Random();
-    private final static String URL = "http://data.okfn.org/data/core/world-cities/r/world-cities.json";
+    private final static String URL = "https://raw.githubusercontent.com/dominictarr/random-name/master/first-names.json";
 
-    private static City[] cities;
+    private static String[] names;
 
-    public static City getRandomCity() {
-        if (cities == null) {
+    public static String getRandomName() {
+        if (names == null) {
             init();
         }
-        return cities[RANDOM.nextInt(cities.length - 1)];
+        return names[RANDOM.nextInt(names.length - 1)];
     }
 
     private static String readUrl(String urlString) throws Exception {
         BufferedReader reader = null;
         try {
-            URL url = new URL(urlString);
+            java.net.URL url = new URL(urlString);
             reader = new BufferedReader(new InputStreamReader(url.openStream()));
             StringBuffer buffer = new StringBuffer();
             int read;
@@ -42,20 +41,20 @@ public class CityGenerator {
         }
     }
 
-    public static City[] getCities() {
-        if (cities == null) {
+    public static String[] getNames() {
+        if (names == null) {
             init();
         }
-        return cities;
+        return names;
     }
 
     private static void init() {
-        if (cities == null) {
+        if (names == null) {
             String json;
             Gson gson = new Gson();
             try {
                 json = readUrl(URL);
-                cities = gson.fromJson(json, City[].class);
+                names = gson.fromJson(json, String[].class);
             } catch (Exception e) {
                 e.printStackTrace();
             }

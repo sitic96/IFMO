@@ -16,6 +16,22 @@ public class WeatherPhenomena {
     public WeatherPhenomena() {
     }
 
+//    public WeatherPhenomena(String weatherPhenomena) {
+//        switch (weatherPhenomena.substring(0, 1)) {
+//            case "+": {
+//                qualifier = Qualifier.HEAVY;
+//                weatherPhenomena.replaceAll("//+", "");
+//                break;
+//            }
+//            case "-": {
+//                qualifier = Qualifier.LIGHT;
+//                weatherPhenomena.replaceAll("-", "");
+//                break;
+//            }
+//        }
+//        if (EnumUtils.isValidEnum(data.enums.Qualifier.class, weatherPhenomena.substring(0, 1))) ;
+//    }
+
     public WeatherPhenomena(Qualifier qualifier, Specification specification, List<data.enums.WeatherPhenomena> weatherPhenomenas) {
         this.qualifier = qualifier;
         this.specification = specification;
