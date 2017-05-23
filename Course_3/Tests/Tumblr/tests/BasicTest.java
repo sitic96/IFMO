@@ -3,13 +3,11 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-/**
- * Created by sitora on 11.05.17.
- */
+
 
 public class BasicTest {
     private static boolean isLogin = false;
@@ -18,8 +16,8 @@ public class BasicTest {
 
     @BeforeClass
     public static void setParams() {
-        System.setProperty("webdriver.gecko.driver", "/users/mac/downloads/geckodriver");
-        driver = new FirefoxDriver();
+        System.setProperty("webdriver.chrome.driver", "/Users/mac/Downloads/chromedriver");
+        driver = new ChromeDriver();
         url = "https://www.tumblr.com/dashboard";
         driver.navigate().to(url);
     }
@@ -36,6 +34,7 @@ public class BasicTest {
         } else {
             new WebDriverWait(driver, 10).until(
                     ExpectedConditions.visibilityOfElementLocated(By.id("signup_determine_email"))).sendKeys("redastify@yahoo.com");
+
             driver.findElement(By.id("signup_forms_submit")).click();
             try {
                 new WebDriverWait(driver, 10).until(
