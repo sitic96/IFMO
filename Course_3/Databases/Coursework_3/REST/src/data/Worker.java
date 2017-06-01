@@ -1,15 +1,26 @@
 package data;
 
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+
 /**
  * Created by sitora on 12.05.17.
  */
+@XmlRootElement()
+@XmlAccessorType(XmlAccessType.FIELD)
 public class Worker {
+    @XmlElement
     private String firstName;
+    @XmlElement
     private String secondName;
-    private City city;
+    @XmlElement
+    private String city;
+    @XmlElement
     private String airportCode;
 
-    public Worker(String firstName, String secondName, City city, String airportCode) {
+    public Worker(String firstName, String secondName, String city, String airportCode) {
         this.firstName = firstName;
         this.secondName = secondName;
         this.city = city;
@@ -32,11 +43,11 @@ public class Worker {
         this.secondName = secondName;
     }
 
-    public City getCity() {
+    public String getCity() {
         return city;
     }
 
-    public void setCity(City city) {
+    public void setCity(String city) {
         this.city = city;
     }
 

@@ -1,10 +1,9 @@
 package connectors;
 
-import org.neo4j.driver.v1.AuthTokens;
-import org.neo4j.driver.v1.Driver;
-import org.neo4j.driver.v1.GraphDatabase;
-import org.neo4j.driver.v1.Session;
-import org.neo4j.driver.v1.types.Relationship;
+import org.neo4j.driver.v1.*;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import static org.neo4j.driver.v1.Values.parameters;
 
@@ -15,7 +14,6 @@ public class Neo4jConnector implements Connector {
     private static Neo4jConnector instance;
     Driver driver;
     Session session;
-    Relationship relationship;
 
     public static Neo4jConnector getInstance() {
         if (instance == null) {
@@ -35,12 +33,34 @@ public class Neo4jConnector implements Connector {
     }
 
     public void save(String code) {
-        session.run("CREATE (a:Airports {code: {code}})",
+        session.run("CREATE (a:Airports_DB {code: {code}})",
                 parameters("code", code));
     }
 
     public void addReference(String code1, String code2) {
-        session.run("MATCH (u:Airports {code:'" + code1 + "'}), (r:Airports {code:'" + code2 + "'})\n" +
-                    "CREATE (u)-[:CONNECTED_WITH]->(r)");
+        session.run("MATCH (u:Airports_DB {code:'" + code1 + "'}), (r:Airports_DB {code:'" + code2 + "'})\n" +
+                "CREATE (u)-[:CONNECTED_WITH]->(r)");
+    }
+
+    public List<String> getConnectedAirports(String code) {
+        List<String> codes = new ArrayList<>();
+        StatementResult result = session.run("MATCH (a:Airports_DB{code:'" + code + "'})-[:CONNECTED_WITH]->(d)\n" +
+                "RETURN distinct d.code as code");
+        while (result.hasNext()) {
+            Record record = result.next();
+            codes.add(record.get("code").asString() + " ");
+        }
+        return codes;
+    }
+
+    public List<String> getWay(String code1, String code2) {
+        List<String> codes = new ArrayList<>();
+        StatementResult result = session.run("MATCH (f:Airports_DB {code: \"" + code1 + "\"}), (t:Airports_DB {code: \"" + code2 + "\"}), \n" +
+                "p = shortestPath((f)-[*..25]-(t)) RETURN p");
+        while (result.hasNext()) {
+            Record record = result.next();
+            codes.add(record.get("code").asString() + " ");
+        }
+        return codes;
     }
 }

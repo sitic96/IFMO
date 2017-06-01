@@ -4,6 +4,7 @@ import com.mongodb.*;
 import data.AirportInfo;
 import data.Condition;
 import data.DataConverter;
+import data.Flight;
 import data.conditions.Wind;
 import data.enums.Airport;
 import org.bson.types.ObjectId;
@@ -35,12 +36,16 @@ public class MongoConnector implements Connector {
 
     public void connect() {
         MongoClient mongoClient = new MongoClient("localhost", 27017);
-        db = mongoClient.getDB("airports");
-        collection = db.getCollection("airports");
+        db = mongoClient.getDB("flights");
+        collection = db.getCollection("flights");
     }
 
     public void save(AirportInfo airportInfo) {
         collection.insert(toDBObject(airportInfo));
+    }
+
+    public void save(Flight flight) {
+        collection.insert(toDBObject(flight));
     }
 
     private Date convertLocalDate(LocalDate localDate) {
@@ -90,6 +95,19 @@ public class MongoConnector implements Connector {
         return builder.get();
     }
 
+    private DBObject toDBObject(Flight flight) {
+        BasicDBObjectBuilder builder = BasicDBObjectBuilder.start();
+        if (flight.getId() != null) {
+            builder.append("id", new ObjectId(flight.getId()));
+        }
+        builder.append("from", flight.getFrom());
+        builder.append("to", flight.getTo());
+        builder.append("status", flight.getStatus().toString());
+        builder.append("date", flight.getDate());
+        builder.append("code", flight.getCode());
+        return builder.get();
+    }
+
     public List<AirportInfo> getAllAirportInfoByAirportCode(String code) {
         List<AirportInfo> infos = new ArrayList<>();
         DBObject query = BasicDBObjectBuilder.start()
@@ -99,5 +117,30 @@ public class MongoConnector implements Connector {
             infos.add(DataConverter.toAirportInfo(dbObjects.next()));
         }
         return infos;
+    }
+
+    public void remove(Flight flight) {
+        if (flight.getId() != null) {
+            DBObject query = BasicDBObjectBuilder.start()
+                    .append("_id", new ObjectId(flight.getId())).get();
+            this.collection.remove(query);
+        } else {
+            BasicDBObjectBuilder builder = BasicDBObjectBuilder.start();
+            builder.append("code", flight.getCode());
+            builder.append("date", flight.getDate());
+
+            this.collection.remove(builder.get());
+        }
+
+    }
+
+    public void remove(String code) {
+        remove(code);
+    }
+
+    public void update(AirportInfo airportInfo) {
+        DBObject query = BasicDBObjectBuilder.start()
+                .append("_id", new ObjectId(airportInfo.getId())).get();
+        this.collection.update(query, toDBObject(airportInfo));
     }
 }

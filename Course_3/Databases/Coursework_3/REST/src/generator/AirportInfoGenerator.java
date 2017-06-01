@@ -1,7 +1,6 @@
 package generator;
 
-import data.AirportInfo;
-import data.Condition;
+import data.*;
 import data.conditions.*;
 import data.conditions.WeatherPhenomena;
 import data.enums.*;
@@ -29,6 +28,14 @@ public class AirportInfoGenerator {
     public AirportInfo generate() {
         airportInfo = new AirportInfo();
         airportInfo.setAirport(AirportCodeGenerator.getRandomCode());
+        airportInfo.setDate(generateDate());
+        airportInfo.setCondition(generateCondition());
+        return airportInfo;
+    }
+
+    public AirportInfo generate(data.Airport airport) {
+        airportInfo = new AirportInfo();
+        airportInfo.setAirport(airport.getIcao());
         airportInfo.setDate(generateDate());
         airportInfo.setCondition(generateCondition());
         return airportInfo;

@@ -1,6 +1,7 @@
 package connectors;
 
 import data.Condition;
+import data.Flight;
 import redis.clients.jedis.Jedis;
 
 /**
@@ -32,6 +33,13 @@ public class RedisConnector implements Connector {
         jedis.set(airportCondition.getIKAO(), airportCondition.toString());
     }
 
+    public void save(Flight flight){
+        jedis.set(flight.getCode(), flight.getStatus().toString());
+    }
+
+    public void remove(Flight flight){
+        jedis.del(flight.getCode());
+    }
     public String get(String key){
         return jedis.get(key);
     }

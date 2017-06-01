@@ -18,7 +18,7 @@ public class DataConverter {
         ObjectId objectId = (ObjectId) dbObject.get("_id");
         airportInfo.setId(objectId.toString());
         airportInfo.setAirport((String) dbObject.get("airport"));
-        airportInfo.setDate((Date)dbObject.get(""));
+        airportInfo.setDate((Date)dbObject.get("date"));
         airportInfo.setCondition(toAirportConditions((DBObject) dbObject.get("condition")));
         return airportInfo;
     }
