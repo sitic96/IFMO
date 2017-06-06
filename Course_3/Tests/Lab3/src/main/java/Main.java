@@ -23,12 +23,12 @@ public class Main {
         capabilities.setCapability("appActivity", "com.vkontakte.android.MainActivity");
         try {
             //Install
-            Runtime.getRuntime().exec("adb install " + path.getAbsolutePath());
+            //Runtime.getRuntime().exec("adb install " + path.getAbsolutePath());
             AndroidDriver driver = new AndroidDriver(new URL("http://127.0.0.1:4723/wd/hub"), capabilities);
 
             //Login
-            driver.findElement(By.id("com.vkontakte.android:id/auth_root")).sendKeys("login");
-            driver.findElement(By.id("com.vkontakte.android:id/auth_pass")).sendKeys("password");
+            driver.findElement(By.id("com.vkontakte.android:id/auth_root")).sendKeys("89615878213");
+            driver.findElement(By.id("com.vkontakte.android:id/auth_pass")).sendKeys("5878213r");
             driver.findElement(By.id("com.vkontakte.android:id/auth_login_btn")).click();
 
             //Create post
