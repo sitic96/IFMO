@@ -51,7 +51,7 @@ void main(void) {
         }
         else
         {
-            leds(~dipPosition);
+            leds(dipPosition);
             delay(200);
         }
     }
