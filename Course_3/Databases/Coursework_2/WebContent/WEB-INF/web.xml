@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="http://java.sun.com/xml/ns/javaee"
+         xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
+         id="WebApp_ID" version="3.0">
+    <display-name>MongoDBWebapp</display-name>
+    <servlet>
+        <servlet-name>add</servlet-name>
+        <servlet-class>servlets.AddServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>add</servlet-name>
+        <url-pattern>/add</url-pattern>
+    </servlet-mapping>
+<servlet>
+    <servlet-name>start</servlet-name>
+    <servlet-class>servlets.MainServlet</servlet-class>
+</servlet>
+    <servlet-mapping>
+        <servlet-name>start</servlet-name>
+        <url-pattern>/start</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>remove</servlet-name>
+        <servlet-class>servlets.DeleteServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>remove</servlet-name>
+        <url-pattern>/remove</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>edit</servlet-name>
+        <servlet-class>servlets.EditServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>edit</servlet-name>
+        <url-pattern>/edit</url-pattern>
+    </servlet-mapping>
+    <context-param>
+        <param-name>MONGODB_HOST</param-name>
+        <param-value>localhost</param-value>
+    </context-param>
+    <context-param>
+        <param-name>MONGODB_PORT</param-name>
+        <param-value>27017</param-value>
+    </context-param>
+
+    <welcome-file-list>
+        <welcome-file>/start</welcome-file>
+    </welcome-file-list>
+</web-app>

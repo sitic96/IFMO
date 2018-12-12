@@ -1,0 +1,501 @@
+CREATE OR REPLACE FUNCTION CHOOSE_BEST_DEPARTMENT
+  RETURN NUMBER
+IS
+  i   NUMBER := 0;
+  max NUMBER := 0;
+  ind NUMBER := 0;
+  BEGIN
+    LOOP
+      i := i + 1;
+      IF (SOLD_DEPARTMENT(i) > max)
+      THEN
+        max := SOLD_DEPARTMENT(i);
+        ind := i;
+      END IF;
+      EXIT WHEN (i >= 5);
+    END LOOP;
+    RETURN ind;
+
+  END CHOOSE_BEST_DEPARTMENT;CREATE OR REPLACE FUNCTION CHOOSE_BEST_DEPARTMENT
+  RETURN NUMBER
+IS
+  i   NUMBER := 0;
+  max NUMBER := 0;
+  ind NUMBER := 0;
+  BEGIN
+    LOOP
+      i := i + 1;
+      IF (SOLD_DEPARTMENT(i) > max)
+      THEN
+        max := SOLD_DEPARTMENT(i);
+        ind := i;
+      END IF;
+      EXIT WHEN (i >= 5);
+    END LOOP;
+    RETURN ind;
+
+  END CHOOSE_BEST_DEPARTMENT;
+
+
+CREATE OR REPLACE PROCEDURE CHOOSE_BEST_DEPARTMENTS
+IS
+  i   NUMBER := 0;
+  maxIMUM NUMBER := 0;
+  ind NUMBER := 0;
+  BEGIN
+    SELECT MAX(ID)
+    INTO maxIMUM
+    FROM DEPARTMENTS;
+    LOOP
+      i := i + 1;
+      INSERT INTO BEST_DEPT (DEPT, COUNT) VALUES (GET_NAME(I), sold_department(I));
+      EXIT WHEN (i <= maxIMUM);
+    END LOOP;
+
+  END CHOOSE_BEST_DEPARTMENTS;CREATE OR REPLACE PROCEDURE CHOOSE_BEST_DEPARTMENTS
+IS
+  i   NUMBER := 0;
+  maxIMUM NUMBER := 0;
+  ind NUMBER := 0;
+  BEGIN
+    SELECT MAX(ID)
+    INTO maxIMUM
+    FROM DEPARTMENTS;
+    LOOP
+      i := i + 1;
+      INSERT INTO BEST_DEPT (DEPT, COUNT) VALUES (GET_NAME(I), sold_department(I));
+      EXIT WHEN (i <= maxIMUM);
+    END LOOP;
+
+  END CHOOSE_BEST_DEPARTMENTS;
+
+
+CREATE OR REPLACE FUNCTION GET_NAME(NUM IN NUMBER)
+  RETURN VARCHAR
+IS
+  result VARCHAR(20);
+
+  BEGIN
+
+    SELECT SECOND_NAME
+    INTO result
+    FROM PEOPLE
+    WHERE ID LIKE NUM;
+    RETURN result;
+  END GET_NAME;CREATE OR REPLACE FUNCTION GET_NAME(NUM IN NUMBER)
+  RETURN VARCHAR
+IS
+  result VARCHAR(20);
+
+  BEGIN
+
+    SELECT SECOND_NAME
+    INTO result
+    FROM PEOPLE
+    WHERE ID LIKE NUM;
+    RETURN result;
+  END GET_NAME;
+
+
+CREATE OR REPLACE FUNCTION GET_PERSON_NAME(NUM IN NUMBER)
+  RETURN VARCHAR
+IS
+  result VARCHAR(20);
+
+  BEGIN
+
+    SELECT SECOND_NAME
+    INTO result
+    FROM PEOPLE
+    WHERE ID LIKE NUM;
+    RETURN result;
+  END GET_PERSON_NAME;CREATE OR REPLACE FUNCTION GET_PERSON_NAME(NUM IN NUMBER)
+  RETURN VARCHAR
+IS
+  result VARCHAR(20);
+
+  BEGIN
+
+    SELECT SECOND_NAME
+    INTO result
+    FROM PEOPLE
+    WHERE ID LIKE NUM;
+    RETURN result;
+  END GET_PERSON_NAME;
+
+
+CREATE OR REPLACE FUNCTION GET_SALARY_DAY(NUM IN NUMBER)
+  RETURN NUMBER
+IS
+
+  result NUMBER := 0;
+  BEGIN
+    SELECT SALARY
+    INTO result
+    FROM DAY_STATUS;
+
+    RETURN result;
+  END GET_SALARY_DAY;CREATE OR REPLACE FUNCTION GET_SALARY_DAY(NUM IN NUMBER)
+  RETURN NUMBER
+IS
+
+  result NUMBER := 0;
+  BEGIN
+    SELECT SALARY
+    INTO result
+    FROM DAY_STATUS;
+
+    RETURN result;
+  END GET_SALARY_DAY;
+
+
+CREATE OR REPLACE FUNCTION GET_SALARY_MONTH(NUM IN NUMBER)
+  RETURN NUMBER
+IS
+
+  result NUMBER := 0;
+  i      NUMBER := 0;
+  BEGIN
+    SELECT DAY_1
+    INTO i
+    FROM HOLIDAYS
+    WHERE PERSON_ID LIKE num;
+    result := result + GET_SALARY_DAY(i);
+    SELECT DAY_2
+    INTO i
+    FROM HOLIDAYS
+    WHERE PERSON_ID LIKE num;
+    result := result + GET_SALARY_DAY(i);
+    SELECT DAY_3
+    INTO i
+    FROM HOLIDAYS
+    WHERE PERSON_ID LIKE num;
+    result := result + GET_SALARY_DAY(i);
+    SELECT DAY_4
+    INTO i
+    FROM HOLIDAYS
+    WHERE PERSON_ID LIKE num;
+    result := result + GET_SALARY_DAY(i);
+    SELECT DAY_5
+    INTO i
+    FROM HOLIDAYS
+    WHERE PERSON_ID LIKE num;
+    result := result + GET_SALARY_DAY(i);
+    SELECT DAY_6
+    INTO i
+    FROM HOLIDAYS
+    WHERE PERSON_ID LIKE num;
+    result := result + GET_SALARY_DAY(i);
+    SELECT DAY_7
+    INTO i
+    FROM HOLIDAYS
+    WHERE PERSON_ID LIKE num;
+    result := result + GET_SALARY_DAY(i);
+    SELECT DAY_8
+    INTO i
+    FROM HOLIDAYS
+    WHERE PERSON_ID LIKE num;
+    result := result + GET_SALARY_DAY(i);
+    SELECT DAY_9
+    INTO i
+    FROM HOLIDAYS
+    WHERE PERSON_ID LIKE num;
+    result := result + GET_SALARY_DAY(i);
+    SELECT DAY_10
+    INTO i
+    FROM HOLIDAYS
+    WHERE PERSON_ID LIKE num;
+    result := result + GET_SALARY_DAY(i);
+    SELECT DAY_11
+    INTO i
+    FROM HOLIDAYS
+    WHERE PERSON_ID LIKE num;
+    result := result + GET_SALARY_DAY(i);
+    SELECT DAY_12
+    INTO i
+    FROM HOLIDAYS
+    WHERE PERSON_ID LIKE num;
+    result := result + GET_SALARY_DAY(i);
+    SELECT DAY_13
+    INTO i
+    FROM HOLIDAYS
+    WHERE PERSON_ID LIKE num;
+    result := result + GET_SALARY_DAY(i);
+    SELECT DAY_14
+    INTO i
+    FROM HOLIDAYS
+    WHERE PERSON_ID LIKE num;
+    result := result + GET_SALARY_DAY(i);
+    SELECT DAY_15
+    INTO i
+    FROM HOLIDAYS
+    WHERE PERSON_ID LIKE num;
+    result := result + GET_SALARY_DAY(i);
+    SELECT DAY_16
+    INTO i
+    FROM HOLIDAYS
+    WHERE PERSON_ID LIKE num;
+    result := result + GET_SALARY_DAY(i);
+    SELECT DAY_17
+    INTO i
+    FROM HOLIDAYS
+    WHERE PERSON_ID LIKE num;
+    result := result + GET_SALARY_DAY(i);
+    SELECT DAY_18
+    INTO i
+    FROM HOLIDAYS
+    WHERE PERSON_ID LIKE num;
+    result := result + GET_SALARY_DAY(i);
+    SELECT DAY_19
+    INTO i
+    FROM HOLIDAYS
+    WHERE PERSON_ID LIKE num;
+    result := result + GET_SALARY_DAY(i);
+    SELECT DAY_20
+    INTO i
+    FROM HOLIDAYS
+    WHERE PERSON_ID LIKE num;
+    result := result + GET_SALARY_DAY(i);
+    SELECT DAY_21
+    INTO i
+    FROM HOLIDAYS
+    WHERE PERSON_ID LIKE num;
+    result := result + GET_SALARY_DAY(i);
+    SELECT DAY_22
+    INTO i
+    FROM HOLIDAYS
+    WHERE PERSON_ID LIKE num;
+    result := result + GET_SALARY_DAY(i);
+    SELECT DAY_23
+    INTO i
+    FROM HOLIDAYS
+    WHERE PERSON_ID LIKE num;
+    result := result + GET_SALARY_DAY(i);
+    SELECT DAY_24
+    INTO i
+    FROM HOLIDAYS
+    WHERE PERSON_ID LIKE num;
+    result := result + GET_SALARY_DAY(i);
+    SELECT DAY_25
+    INTO i
+    FROM HOLIDAYS
+    WHERE PERSON_ID LIKE num;
+    result := result + GET_SALARY_DAY(i);
+    SELECT DAY_26
+    INTO i
+    FROM HOLIDAYS
+    WHERE PERSON_ID LIKE num;
+    result := result + GET_SALARY_DAY(i);
+    SELECT DAY_27
+    INTO i
+    FROM HOLIDAYS
+    WHERE PERSON_ID LIKE num;
+    result := result + GET_SALARY_DAY(i);
+    SELECT DAY_28
+    INTO i
+    FROM HOLIDAYS
+    WHERE PERSON_ID LIKE num;
+    result := result + GET_SALARY_DAY(i);
+    SELECT DAY_29
+    INTO i
+    FROM HOLIDAYS
+    WHERE PERSON_ID LIKE num;
+    result := result + GET_SALARY_DAY(i);
+    SELECT DAY_30
+    INTO i
+    FROM HOLIDAYS
+    WHERE PERSON_ID LIKE num;
+    result := result + GET_SALARY_DAY(i);
+
+    RETURN result;
+  END GET_SALARY_MONTH;CREATE OR REPLACE FUNCTION GET_SALARY_MONTH(NUM IN NUMBER)
+  RETURN NUMBER
+IS
+
+  result NUMBER := 0;
+  i      NUMBER := 0;
+  BEGIN
+    SELECT DAY_1
+    INTO i
+    FROM HOLIDAYS
+    WHERE PERSON_ID LIKE num;
+    result := result + GET_SALARY_DAY(i);
+    SELECT DAY_2
+    INTO i
+    FROM HOLIDAYS
+    WHERE PERSON_ID LIKE num;
+    result := result + GET_SALARY_DAY(i);
+    SELECT DAY_3
+    INTO i
+    FROM HOLIDAYS
+    WHERE PERSON_ID LIKE num;
+    result := result + GET_SALARY_DAY(i);
+    SELECT DAY_4
+    INTO i
+    FROM HOLIDAYS
+    WHERE PERSON_ID LIKE num;
+    result := result + GET_SALARY_DAY(i);
+    SELECT DAY_5
+    INTO i
+    FROM HOLIDAYS
+    WHERE PERSON_ID LIKE num;
+    result := result + GET_SALARY_DAY(i);
+    SELECT DAY_6
+    INTO i
+    FROM HOLIDAYS
+    WHERE PERSON_ID LIKE num;
+    result := result + GET_SALARY_DAY(i);
+    SELECT DAY_7
+    INTO i
+    FROM HOLIDAYS
+    WHERE PERSON_ID LIKE num;
+    result := result + GET_SALARY_DAY(i);
+    SELECT DAY_8
+    INTO i
+    FROM HOLIDAYS
+    WHERE PERSON_ID LIKE num;
+    result := result + GET_SALARY_DAY(i);
+    SELECT DAY_9
+    INTO i
+    FROM HOLIDAYS
+    WHERE PERSON_ID LIKE num;
+    result := result + GET_SALARY_DAY(i);
+    SELECT DAY_10
+    INTO i
+    FROM HOLIDAYS
+    WHERE PERSON_ID LIKE num;
+    result := result + GET_SALARY_DAY(i);
+    SELECT DAY_11
+    INTO i
+    FROM HOLIDAYS
+    WHERE PERSON_ID LIKE num;
+    result := result + GET_SALARY_DAY(i);
+    SELECT DAY_12
+    INTO i
+    FROM HOLIDAYS
+    WHERE PERSON_ID LIKE num;
+    result := result + GET_SALARY_DAY(i);
+    SELECT DAY_13
+    INTO i
+    FROM HOLIDAYS
+    WHERE PERSON_ID LIKE num;
+    result := result + GET_SALARY_DAY(i);
+    SELECT DAY_14
+    INTO i
+    FROM HOLIDAYS
+    WHERE PERSON_ID LIKE num;
+    result := result + GET_SALARY_DAY(i);
+    SELECT DAY_15
+    INTO i
+    FROM HOLIDAYS
+    WHERE PERSON_ID LIKE num;
+    result := result + GET_SALARY_DAY(i);
+    SELECT DAY_16
+    INTO i
+    FROM HOLIDAYS
+    WHERE PERSON_ID LIKE num;
+    result := result + GET_SALARY_DAY(i);
+    SELECT DAY_17
+    INTO i
+    FROM HOLIDAYS
+    WHERE PERSON_ID LIKE num;
+    result := result + GET_SALARY_DAY(i);
+    SELECT DAY_18
+    INTO i
+    FROM HOLIDAYS
+    WHERE PERSON_ID LIKE num;
+    result := result + GET_SALARY_DAY(i);
+    SELECT DAY_19
+    INTO i
+    FROM HOLIDAYS
+    WHERE PERSON_ID LIKE num;
+    result := result + GET_SALARY_DAY(i);
+    SELECT DAY_20
+    INTO i
+    FROM HOLIDAYS
+    WHERE PERSON_ID LIKE num;
+    result := result + GET_SALARY_DAY(i);
+    SELECT DAY_21
+    INTO i
+    FROM HOLIDAYS
+    WHERE PERSON_ID LIKE num;
+    result := result + GET_SALARY_DAY(i);
+    SELECT DAY_22
+    INTO i
+    FROM HOLIDAYS
+    WHERE PERSON_ID LIKE num;
+    result := result + GET_SALARY_DAY(i);
+    SELECT DAY_23
+    INTO i
+    FROM HOLIDAYS
+    WHERE PERSON_ID LIKE num;
+    result := result + GET_SALARY_DAY(i);
+    SELECT DAY_24
+    INTO i
+    FROM HOLIDAYS
+    WHERE PERSON_ID LIKE num;
+    result := result + GET_SALARY_DAY(i);
+    SELECT DAY_25
+    INTO i
+    FROM HOLIDAYS
+    WHERE PERSON_ID LIKE num;
+    result := result + GET_SALARY_DAY(i);
+    SELECT DAY_26
+    INTO i
+    FROM HOLIDAYS
+    WHERE PERSON_ID LIKE num;
+    result := result + GET_SALARY_DAY(i);
+    SELECT DAY_27
+    INTO i
+    FROM HOLIDAYS
+    WHERE PERSON_ID LIKE num;
+    result := result + GET_SALARY_DAY(i);
+    SELECT DAY_28
+    INTO i
+    FROM HOLIDAYS
+    WHERE PERSON_ID LIKE num;
+    result := result + GET_SALARY_DAY(i);
+    SELECT DAY_29
+    INTO i
+    FROM HOLIDAYS
+    WHERE PERSON_ID LIKE num;
+    result := result + GET_SALARY_DAY(i);
+    SELECT DAY_30
+    INTO i
+    FROM HOLIDAYS
+    WHERE PERSON_ID LIKE num;
+    result := result + GET_SALARY_DAY(i);
+
+    RETURN result;
+  END GET_SALARY_MONTH;
+
+
+CREATE OR REPLACE FUNCTION SOLD_DEPARTMENT(NUM IN NUMBER)
+  RETURN NUMBER
+IS
+  result HOLIDAYS.DEPARTMENT%TYPE;
+
+  BEGIN
+
+    SELECT count(*)
+    INTO result
+    FROM PRODUCTS_INFO
+    WHERE WHO_SOLD IN (SELECT PERSON_ID
+                       FROM HOLIDAYS
+                       WHERE DEPARTMENT LIKE NUM);
+    RETURN result;
+  END SOLD_DEPARTMENT;CREATE OR REPLACE FUNCTION SOLD_DEPARTMENT(NUM IN NUMBER)
+  RETURN NUMBER
+IS
+  result HOLIDAYS.DEPARTMENT%TYPE;
+
+  BEGIN
+
+    SELECT count(*)
+    INTO result
+    FROM PRODUCTS_INFO
+    WHERE WHO_SOLD IN (SELECT PERSON_ID
+                       FROM HOLIDAYS
+                       WHERE DEPARTMENT LIKE NUM);
+    RETURN result;
+  END SOLD_DEPARTMENT;
